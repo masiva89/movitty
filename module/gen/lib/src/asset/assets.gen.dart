@@ -25,22 +25,274 @@ class $AssetsColorGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/ic_love.svg
-  SvgGenImage get icLove => const SvgGenImage('assets/icons/ic_love.svg');
+  /// File path: assets/icons/a_1.svg
+  SvgGenImage get a1 => const SvgGenImage('assets/icons/a_1.svg');
+
+  /// File path: assets/icons/a_10.svg
+  SvgGenImage get a10 => const SvgGenImage('assets/icons/a_10.svg');
+
+  /// File path: assets/icons/a_11.svg
+  SvgGenImage get a11 => const SvgGenImage('assets/icons/a_11.svg');
+
+  /// File path: assets/icons/a_12.svg
+  SvgGenImage get a12 => const SvgGenImage('assets/icons/a_12.svg');
+
+  /// File path: assets/icons/a_13.svg
+  SvgGenImage get a13 => const SvgGenImage('assets/icons/a_13.svg');
+
+  /// File path: assets/icons/a_14.svg
+  SvgGenImage get a14 => const SvgGenImage('assets/icons/a_14.svg');
+
+  /// File path: assets/icons/a_2.svg
+  SvgGenImage get a2 => const SvgGenImage('assets/icons/a_2.svg');
+
+  /// File path: assets/icons/a_3.svg
+  SvgGenImage get a3 => const SvgGenImage('assets/icons/a_3.svg');
+
+  /// File path: assets/icons/a_4.svg
+  SvgGenImage get a4 => const SvgGenImage('assets/icons/a_4.svg');
+
+  /// File path: assets/icons/a_5.svg
+  SvgGenImage get a5 => const SvgGenImage('assets/icons/a_5.svg');
+
+  /// File path: assets/icons/a_6.svg
+  SvgGenImage get a6 => const SvgGenImage('assets/icons/a_6.svg');
+
+  /// File path: assets/icons/a_7.svg
+  SvgGenImage get a7 => const SvgGenImage('assets/icons/a_7.svg');
+
+  /// File path: assets/icons/a_8.svg
+  SvgGenImage get a8 => const SvgGenImage('assets/icons/a_8.svg');
+
+  /// File path: assets/icons/a_9.svg
+  SvgGenImage get a9 => const SvgGenImage('assets/icons/a_9.svg');
+
+  /// File path: assets/icons/add_circle.svg
+  SvgGenImage get addCircle => const SvgGenImage('assets/icons/add_circle.svg');
+
+  /// File path: assets/icons/alarm.svg
+  SvgGenImage get alarm => const SvgGenImage('assets/icons/alarm.svg');
+
+  /// File path: assets/icons/arrow_back.svg
+  SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
+
+  /// File path: assets/icons/back_filled.svg
+  SvgGenImage get backFilled =>
+      const SvgGenImage('assets/icons/back_filled.svg');
+
+  /// File path: assets/icons/calendar_view_day.svg
+  SvgGenImage get calendarViewDay =>
+      const SvgGenImage('assets/icons/calendar_view_day.svg');
+
+  /// File path: assets/icons/cancel.svg
+  SvgGenImage get cancel => const SvgGenImage('assets/icons/cancel.svg');
+
+  /// File path: assets/icons/check_circle.svg
+  SvgGenImage get checkCircle =>
+      const SvgGenImage('assets/icons/check_circle.svg');
+
+  /// File path: assets/icons/chevron_right.svg
+  SvgGenImage get chevronRight =>
+      const SvgGenImage('assets/icons/chevron_right.svg');
+
+  /// File path: assets/icons/cost_icon.svg
+  SvgGenImage get costIcon => const SvgGenImage('assets/icons/cost_icon.svg');
+
+  /// File path: assets/icons/delete.svg
+  SvgGenImage get delete => const SvgGenImage('assets/icons/delete.svg');
+
+  /// File path: assets/icons/director_icon.svg
+  SvgGenImage get directorIcon =>
+      const SvgGenImage('assets/icons/director_icon.svg');
+
+  /// File path: assets/icons/edit.svg
+  SvgGenImage get edit => const SvgGenImage('assets/icons/edit.svg');
+
+  /// File path: assets/icons/g_action.svg
+  SvgGenImage get gAction => const SvgGenImage('assets/icons/g_action.svg');
+
+  /// File path: assets/icons/g_crime.svg
+  SvgGenImage get gCrime => const SvgGenImage('assets/icons/g_crime.svg');
+
+  /// File path: assets/icons/g_dram.svg
+  SvgGenImage get gDram => const SvgGenImage('assets/icons/g_dram.svg');
+
+  /// File path: assets/icons/g_history.svg
+  SvgGenImage get gHistory => const SvgGenImage('assets/icons/g_history.svg');
+
+  /// File path: assets/icons/g_horror.svg
+  SvgGenImage get gHorror => const SvgGenImage('assets/icons/g_horror.svg');
+
+  /// File path: assets/icons/g_love.svg
+  SvgGenImage get gLove => const SvgGenImage('assets/icons/g_love.svg');
+
+  /// File path: assets/icons/g_scifi.svg
+  SvgGenImage get gScifi => const SvgGenImage('assets/icons/g_scifi.svg');
+
+  /// File path: assets/icons/g_tension.svg
+  SvgGenImage get gTension => const SvgGenImage('assets/icons/g_tension.svg');
+
+  /// File path: assets/icons/genre_icon.svg
+  SvgGenImage get genreIcon => const SvgGenImage('assets/icons/genre_icon.svg');
+
+  /// File path: assets/icons/headline.svg
+  SvgGenImage get headline => const SvgGenImage('assets/icons/headline.svg');
+
+  /// File path: assets/icons/heart_check.svg
+  SvgGenImage get heartCheck =>
+      const SvgGenImage('assets/icons/heart_check.svg');
+
+  /// File path: assets/icons/heart_plus.svg
+  SvgGenImage get heartPlus => const SvgGenImage('assets/icons/heart_plus.svg');
+
+  /// File path: assets/icons/lock.svg
+  SvgGenImage get lock => const SvgGenImage('assets/icons/lock.svg');
+
+  /// File path: assets/icons/mail.svg
+  SvgGenImage get mail => const SvgGenImage('assets/icons/mail.svg');
+
+  /// File path: assets/icons/mark_email.svg
+  SvgGenImage get markEmail => const SvgGenImage('assets/icons/mark_email.svg');
+
+  /// File path: assets/icons/movie_icon.svg
+  SvgGenImage get movieIcon => const SvgGenImage('assets/icons/movie_icon.svg');
+
+  /// File path: assets/icons/nav_explore.svg
+  SvgGenImage get navExplore =>
+      const SvgGenImage('assets/icons/nav_explore.svg');
+
+  /// File path: assets/icons/nav_home.svg
+  SvgGenImage get navHome => const SvgGenImage('assets/icons/nav_home.svg');
+
+  /// File path: assets/icons/nav_lists.svg
+  SvgGenImage get navLists => const SvgGenImage('assets/icons/nav_lists.svg');
+
+  /// File path: assets/icons/nav_profile.svg
+  SvgGenImage get navProfile =>
+      const SvgGenImage('assets/icons/nav_profile.svg');
+
+  /// File path: assets/icons/password.svg
+  SvgGenImage get password => const SvgGenImage('assets/icons/password.svg');
+
+  /// File path: assets/icons/people.svg
+  SvgGenImage get people => const SvgGenImage('assets/icons/people.svg');
+
+  /// File path: assets/icons/profile.svg
+  SvgGenImage get profile => const SvgGenImage('assets/icons/profile.svg');
+
+  /// File path: assets/icons/search.svg
+  SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
+
+  /// File path: assets/icons/settings.svg
+  SvgGenImage get settings => const SvgGenImage('assets/icons/settings.svg');
+
+  /// File path: assets/icons/tv_series_icon.svg
+  SvgGenImage get tvSeriesIcon =>
+      const SvgGenImage('assets/icons/tv_series_icon.svg');
+
+  /// File path: assets/icons/visibility.svg
+  SvgGenImage get visibility =>
+      const SvgGenImage('assets/icons/visibility.svg');
+
+  /// File path: assets/icons/visibility_off.svg
+  SvgGenImage get visibilityOff =>
+      const SvgGenImage('assets/icons/visibility_off.svg');
+
+  /// File path: assets/icons/watch_provider_icon.svg
+  SvgGenImage get watchProviderIcon =>
+      const SvgGenImage('assets/icons/watch_provider_icon.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [icLove];
+  List<SvgGenImage> get values => [
+        a1,
+        a10,
+        a11,
+        a12,
+        a13,
+        a14,
+        a2,
+        a3,
+        a4,
+        a5,
+        a6,
+        a7,
+        a8,
+        a9,
+        addCircle,
+        alarm,
+        arrowBack,
+        backFilled,
+        calendarViewDay,
+        cancel,
+        checkCircle,
+        chevronRight,
+        costIcon,
+        delete,
+        directorIcon,
+        edit,
+        gAction,
+        gCrime,
+        gDram,
+        gHistory,
+        gHorror,
+        gLove,
+        gScifi,
+        gTension,
+        genreIcon,
+        headline,
+        heartCheck,
+        heartPlus,
+        lock,
+        mail,
+        markEmail,
+        movieIcon,
+        navExplore,
+        navHome,
+        navLists,
+        navProfile,
+        password,
+        people,
+        profile,
+        search,
+        settings,
+        tvSeriesIcon,
+        visibility,
+        visibilityOff,
+        watchProviderIcon
+      ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/img_flags.png
-  AssetGenImage get imgFlags =>
-      const AssetGenImage('assets/images/img_flags.png');
+  /// File path: assets/images/main_logo.png
+  AssetGenImage get mainLogoPng =>
+      const AssetGenImage('assets/images/main_logo.png');
+
+  /// File path: assets/images/main_logo.svg
+  SvgGenImage get mainLogoSvg =>
+      const SvgGenImage('assets/images/main_logo.svg');
+
+  /// File path: assets/images/main_logo_full.png
+  AssetGenImage get mainLogoFullPng =>
+      const AssetGenImage('assets/images/main_logo_full.png');
+
+  /// File path: assets/images/main_logo_full.svg
+  SvgGenImage get mainLogoFullSvg =>
+      const SvgGenImage('assets/images/main_logo_full.svg');
+
+  /// File path: assets/images/onboard_background_image.png
+  AssetGenImage get onboardBackgroundImage =>
+      const AssetGenImage('assets/images/onboard_background_image.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [imgFlags];
+  List<dynamic> get values => [
+        mainLogoPng,
+        mainLogoSvg,
+        mainLogoFullPng,
+        mainLogoFullSvg,
+        onboardBackgroundImage
+      ];
 }
 
 class $AssetsLottieGen {
