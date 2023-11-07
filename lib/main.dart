@@ -12,11 +12,13 @@ import 'package:widgets/widgets.dart';
 
 Future<void> main() async {
   await ApplicationInitialize().make();
-  runApp(ProductLocalization(child: const StateInitialize(child: _MyApp())));
+  runApp(ProductLocalization(child: const StateInitialize(child: Movitty())));
 }
 
-final class _MyApp extends StatelessWidget {
-  const _MyApp();
+/// Movitty Initial Widget
+final class Movitty extends StatelessWidget {
+  /// Movitty Initial Widget Constructor
+  const Movitty({super.key});
   static final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
