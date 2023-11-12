@@ -29,6 +29,7 @@ enum AppEnvironmentItems {
     try {
       switch (this) {
         case AppEnvironmentItems.baseUrl:
+          print(AppEnvironment._config.baseUrl);
           return AppEnvironment._config.baseUrl;
         default:
           throw Exception('AppEnvironmentItems is not initialized.');

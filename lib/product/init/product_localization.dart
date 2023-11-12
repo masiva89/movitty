@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:movitty/product/utility/constans/enums/locales.dart';
+import 'package:movitty/product/utility/config/enums/locales.dart';
 
 @immutable
 
@@ -21,7 +21,7 @@ final class ProductLocalization extends EasyLocalization {
     Locales.en.locale,
   ];
 
-  static const String _translationPath = 'asset/translations';
+  static const String _translationPath = 'assets/translations';
 
   /// Change project language by using [Locales]
   static Future<void> updateLanguage({

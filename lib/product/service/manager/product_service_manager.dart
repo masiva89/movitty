@@ -1,16 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:movitty/product/init/config/app_environment.dart';
 import 'package:vexana/vexana.dart';
 
 /// Product network manager
 final class ProductNetworkManager extends NetworkManager<EmptyModel> {
   ProductNetworkManager.base()
       : super(
-          options: BaseOptions(
-            baseUrl: AppEnvironmentItems.baseUrl.value,
-          ),
+          options: BaseOptions(),
         );
 
   /// Handle error

@@ -5,7 +5,6 @@ import 'package:movitty/product/init/application_initialize.dart';
 import 'package:movitty/product/init/product_localization.dart';
 import 'package:movitty/product/init/state_initialize.dart';
 import 'package:movitty/product/init/theme/custom_dark_theme.dart';
-import 'package:movitty/product/init/theme/custom_light_theme.dart';
 import 'package:movitty/product/navigation/app_router.dart';
 import 'package:movitty/product/state/view_model/product_view_model.dart';
 import 'package:widgets/widgets.dart';
@@ -25,7 +24,7 @@ final class Movitty extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: _appRouter.config(),
       builder: CustomResponsive.build,
-      theme: CustomLightTheme().themeData,
+      theme: CustomDarkTheme().themeData,
       darkTheme: CustomDarkTheme().themeData,
       themeMode: context.watch<ProductViewModel>().state.themeMode,
       localizationsDelegates: context.localizationDelegates,

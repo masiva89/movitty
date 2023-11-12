@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:kartal/kartal.dart';
 import 'package:movitty/product/utility/constants/decoration/project_radius.dart';
 import 'package:movitty/product/utility/constants/decoration/text_styles.dart';
+import 'package:movitty/product/widget/button/enum/button_types.dart';
 import 'package:movitty/product/widget/padding/project_padding.dart';
 
 /// radius is 20
-final class NormalButton extends StatelessWidget {
+final class MiniButton extends StatelessWidget {
   /// constructor
-  const NormalButton({
+  const MiniButton({
     required this.title,
     required this.onPressed,
     super.key,
-    this.isPrimary = true,
+    this.buttonType = ButtonType.primary,
   });
 
   /// title text
@@ -23,28 +25,33 @@ final class NormalButton extends StatelessWidget {
   /// is primary
   ///
   /// default is true.
-  final bool isPrimary;
+  final ButtonType buttonType;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      radius: ProjectRadius.large.responsive(context),
-      borderRadius: ProjectRadius.large.radius(context),
+      radius: ProjectRadius.small.responsive(context),
+      borderRadius: ProjectRadius.small.radius(context),
       child: Ink(
-        width: double.infinity,
-        padding: ProjectPadding.allLarge(context),
+        padding: ProjectPadding.allMedium(context),
         decoration: BoxDecoration(
-          color: isPrimary ? ColorName.primary : ColorName.backgroundSecondary,
+          color: buttonType.backgroundColor,
           border: Border.all(
             color: ColorName.primary,
           ),
-          borderRadius: ProjectRadius.large.radius(context),
+          borderRadius: ProjectRadius.small.radius(context),
         ),
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyles.button(context),
+        child: Container(
+          constraints: BoxConstraints(
+            maxWidth: context.sized.width * 0.4,
+          ),
+          child: Center(
+            child: Text(
+              title,
+              style:
+                  TextStyles.miniButton(context, color: buttonType.fontColor),
+            ),
           ),
         ),
       ),

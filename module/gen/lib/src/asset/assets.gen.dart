@@ -80,6 +80,9 @@ class $AssetsIconsGen {
   SvgGenImage get backFilled =>
       const SvgGenImage('assets/icons/back_filled.svg');
 
+  /// File path: assets/icons/bug.svg
+  SvgGenImage get bug => const SvgGenImage('assets/icons/bug.svg');
+
   /// File path: assets/icons/calendar_view_day.svg
   SvgGenImage get calendarViewDay =>
       const SvgGenImage('assets/icons/calendar_view_day.svg');
@@ -222,6 +225,7 @@ class $AssetsIconsGen {
         alarm,
         arrowBack,
         backFilled,
+        bug,
         calendarViewDay,
         cancel,
         checkCircle,
