@@ -10,6 +10,7 @@ class CustomTextButton extends StatelessWidget {
     required this.title,
     required this.onPressed,
     super.key,
+    this.isActive = true,
   });
 
   /// title text
@@ -17,6 +18,8 @@ class CustomTextButton extends StatelessWidget {
 
   /// button on pressed
   final VoidCallback onPressed;
+
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class CustomTextButton extends StatelessWidget {
           borderRadius: ProjectRadius.small.radius(context),
         ),
       ),
-      onPressed: onPressed,
+      onPressed: isActive ? onPressed : null,
       child: Text(
         title,
         style: TextStyles.textButton(context),

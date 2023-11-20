@@ -135,9 +135,12 @@ class _TestCustomTextfieldState extends State<TestCustomTextfield> {
       textInputAction: widget.textInputAction,
       keyboardType: widget.keyboardType,
       obscureText: _isObscure,
+      style: _textStyle,
+      focusNode: _focusNode,
       decoration: InputDecoration(
         error: _errorWidget,
         hintText: widget.hintText,
+        hintStyle: _hintStyle,
         contentPadding: _pads.padding,
         prefixIcon: Padding(
           padding: EdgeInsets.symmetric(horizontal: _pads.padding?.left ?? 0),

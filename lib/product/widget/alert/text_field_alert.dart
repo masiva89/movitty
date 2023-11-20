@@ -46,13 +46,10 @@ class TextFieldAlert extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 2),
-            child: Icon(
-              mainIcon,
-              color: mainColor,
-              size: ProjectSize.medium.responsive(context),
-            ),
+          Icon(
+            mainIcon,
+            color: mainColor,
+            size: ProjectSize.medium.responsive(context),
           ),
           ProjectSpacer.xSmallWidth(context),
           Expanded(

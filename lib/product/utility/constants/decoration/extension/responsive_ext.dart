@@ -3,7 +3,7 @@ import 'package:kartal/kartal.dart';
 import 'package:movitty/product/utility/constants/decoration/enums/font_sizes.dart';
 
 extension FontResponsive on FontSizes {
-  double responsive(BuildContext context) => context.sized.height * value / 700;
+  double responsive(BuildContext context) => context.sized.height * value / 800;
 }
 
 extension PaddingResponsive on num {

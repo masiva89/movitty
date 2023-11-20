@@ -9,6 +9,10 @@ import 'package:movitty/product/navigation/app_router.dart';
 import 'package:movitty/product/state/view_model/product_view_model.dart';
 import 'package:widgets/widgets.dart';
 
+/// Project navigator key.
+final navigatorKey = GlobalKey<NavigatorState>();
+final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+final globalScaffoldKey = GlobalKey<ScaffoldState>();
 Future<void> main() async {
   await ApplicationInitialize().make();
   runApp(ProductLocalization(child: const StateInitialize(child: Movitty())));
@@ -22,6 +26,8 @@ final class Movitty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      key: navigatorKey,
+      scaffoldMessengerKey: scaffoldMessengerKey,
       routerConfig: _appRouter.config(),
       builder: CustomResponsive.build,
       theme: CustomDarkTheme().themeData,

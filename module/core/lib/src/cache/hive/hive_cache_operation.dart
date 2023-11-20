@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:core/src/cache/core/cache_model.dart';
 import 'package:core/src/cache/core/cache_operation.dart';
 import 'package:hive/hive.dart';
@@ -12,6 +14,7 @@ class HiveCacheOperation<T extends CacheModel> extends CacheOperation<T> {
   late final Box<T> _box;
   @override
   void add(T item) {
+    log('HiveCacheOperation.add');
     _box.put(item.id, item);
   }
 
@@ -27,6 +30,7 @@ class HiveCacheOperation<T extends CacheModel> extends CacheOperation<T> {
 
   @override
   T? get(String id) {
+    log('HiveCacheOperation.get');
     return _box.get(id);
   }
 

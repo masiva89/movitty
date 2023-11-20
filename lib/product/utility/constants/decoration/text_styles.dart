@@ -108,7 +108,7 @@ final class TextStyles {
 
   static TextStyle textButton(
     BuildContext context, {
-    Color color = ColorName.primary4,
+    Color color = ColorName.primary,
   }) {
     return TextStyle(
       fontSize: FontSizes.textButton.responsive(context),

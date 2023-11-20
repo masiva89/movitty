@@ -26,6 +26,8 @@ class ProjectTextField extends StatefulWidget {
     this.onChanged,
     this.prefixIcon,
     this.validator,
+    this.isActive = true,
+    this.onValidate,
   });
 
   final TextEditingController controller;
@@ -38,6 +40,8 @@ class ProjectTextField extends StatefulWidget {
   final void Function(String)? onChanged;
   final SvgGenImage? prefixIcon;
   final ITextFieldValidator? validator;
+  final bool isActive;
+  final Function(bool)? onValidate;
 
   @override
   State<ProjectTextField> createState() => _ProjectTextFieldState();
@@ -62,46 +66,58 @@ class _ProjectTextFieldState extends State<ProjectTextField> {
     final pads = TextFieldSizes(
       fontSize: FontSizes.subtitle1.responsive(context),
       iconSize: ProjectSize.large.responsive(context),
-      radius: ProjectRadius.small.responsive(context),
-      padding: EdgeInsets.all(ProjectSize.medium.responsive(context)),
+      radius: ProjectRadius.medium.responsive(context),
+      padding: EdgeInsets.all(ProjectSize.small.responsive(context)),
     );
-    return TestCustomTextfield(
-      errorWidget: _validator?.alertWidget,
-      prefixIcon: widget.prefixIcon?.svg(package: 'gen'),
-      focusNode: widget.focusNode,
-      keyboardType: widget.keyboardType,
-      onChanged: (value) {
-        widget.onChanged?.call(value);
-        _validator?.onUpdate(value);
-        setState(() {});
-      },
-      onSubmitted: (p0) {
-        _validator?.validate();
-        setState(() {});
-      },
-      textInputAction: widget.textInputAction,
-      isPassword: widget.isPassword,
-      controller: widget.controller,
-      label: widget.label,
-      hintText: widget.hintText,
-      primaryColor: primaryColor,
-      secondaryColor: secondaryColor,
-      tertiaryColor: tertiaryColor,
-      isObscure: widget.isPassword && _isObscure,
-      suffixIcon: ObscureWidget(
-        onTap: () => setState(() {
-          _isObscure = !_isObscure;
-        }),
-        isObscure: _isObscure,
-      ),
-      pads: pads,
-      textStyle: TextStyles.subtitle1(context),
-      hintStyle: TextStyles.subtitle1(context).copyWith(
-        color: ColorName.primary3,
-      ),
-      labelStyle: TextStyles.subtitle1(context).copyWith(
-        color: ColorName.primary,
-      ),
+    return Stack(
+      children: [
+        TestCustomTextfield(
+          errorWidget: _validator?.alertWidget,
+          prefixIcon: widget.prefixIcon?.svg(package: 'gen'),
+          focusNode: widget.focusNode,
+          keyboardType: widget.keyboardType,
+          onChanged: (value) {
+            widget.onChanged?.call(value);
+            final validation = _validator?.onUpdate(value);
+            setState(() {});
+            widget.onValidate?.call(validation ?? false);
+          },
+          onSubmitted: (p0) {
+            final validation = _validator?.validate();
+            setState(() {});
+            widget.onValidate?.call(validation ?? false);
+          },
+          textInputAction: widget.textInputAction,
+          isPassword: widget.isPassword,
+          controller: widget.controller,
+          label: widget.label,
+          hintText: widget.hintText,
+          primaryColor: primaryColor,
+          secondaryColor: secondaryColor,
+          tertiaryColor: tertiaryColor,
+          isObscure: widget.isPassword && _isObscure,
+          suffixIcon: ObscureWidget(
+            onTap: () => setState(() {
+              _isObscure = !_isObscure;
+            }),
+            isObscure: _isObscure,
+          ),
+          pads: pads,
+          textStyle: TextStyles.subtitle1(context),
+          hintStyle: TextStyles.subtitle1(context, color: ColorName.primary2),
+          labelStyle: TextStyles.subtitle1(context, color: ColorName.primary),
+        ),
+        if (!widget.isActive) ...{
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: ProjectRadius.medium.radius(context),
+                color: ColorName.backgroundPrimary.withOpacity(0.2),
+              ),
+            ),
+          ),
+        },
+      ],
     );
   }
 }

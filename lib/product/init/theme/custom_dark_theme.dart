@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movitty/product/init/theme/custom_color_scheme.dart';
-import 'package:movitty/product/init/theme/custom_theme.dart';
+import 'package:movitty/product/init/index.dart';
 
 /// Custom light theme for project design
 final class CustomDarkTheme implements CustomTheme {
@@ -9,6 +8,8 @@ final class CustomDarkTheme implements CustomTheme {
         useMaterial3: true,
         colorScheme: CustomColorScheme.darkColorScheme,
         floatingActionButtonTheme: floatingActionButtonThemeData,
+        appBarTheme: CustomAppBarTheme.appBarTheme,
+        bottomSheetTheme: CustomBottomsheetTheme.bottomSheetThemeData,
       );
 
   @override
