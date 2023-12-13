@@ -10,12 +10,15 @@ import 'package:movitty/product/state/container/index.dart';
 mixin GuardMixin on AutoRouteGuard {
   ProductCache get _productCache => ProductStateItems.productCache;
 
+  /// [userAuthStatus] is a getter for user auth status.
+  ///
+  /// It returns [UserStatus] enum to use in guards.
   UserStatus get userAuthStatus {
     log('[userAuthStatus]');
     final authCacheModel =
         _productCache.authCacheModel.get(CachePath.auth.value);
     if (authCacheModel == null) return UserStatus.notLoggedIn;
-
+    log('[userAuthStatus] ${authCacheModel.userStatus}');
     return authCacheModel.userStatus;
   }
 }

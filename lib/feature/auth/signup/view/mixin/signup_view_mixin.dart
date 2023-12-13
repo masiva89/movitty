@@ -4,15 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
 import 'package:movitty/feature/auth/signup/view/signup_view.dart';
 import 'package:movitty/feature/auth/signup/view_model/signup_view_model.dart';
-import 'package:movitty/product/service/features/auth/signup_service.dart';
-import 'package:movitty/product/service/manager/product_network_error_manager.dart';
-import 'package:movitty/product/state/base/base_state.dart';
-import 'package:movitty/product/state/container/product_state_items.dart';
-import 'package:movitty/product/utility/validator/email_validator.dart';
-import 'package:movitty/product/utility/validator/form_validator.dart';
-import 'package:movitty/product/utility/validator/i_textfield_validator.dart';
-import 'package:movitty/product/utility/validator/password_validator.dart';
-import 'package:movitty/product/utility/validator/username_validator.dart';
+import 'package:movitty/product/service/index.dart';
+import 'package:movitty/product/state/index.dart';
+import 'package:movitty/product/utility/validator/index.dart';
 
 mixin SignupViewMixin on BaseState<SignupView> {
   late final ProductNetworkErrorManager _productNetworkErrorManager;

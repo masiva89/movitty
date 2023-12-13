@@ -20,6 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// AppBar's suffix.
   final List<Widget>? actions;
 
+  /// AppBar's background color.
   final Color? backgroundColor;
 
   @override
@@ -28,7 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       leading: prefix,
       actions: actions,
-      automaticallyImplyLeading: false,
+      //automaticallyImplyLeading: false,
       backgroundColor: backgroundColor,
       elevation: 0,
       centerTitle: true,

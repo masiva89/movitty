@@ -61,7 +61,7 @@ final class CustomColorScheme {
     onErrorContainer: Color(0xFF410E0B),
     outline: Color(0xFF79747E),
     background: ColorName.backgroundPrimary,
-    onBackground: Color(0xFF1C1B1F),
+    onBackground: ColorName.primary4,
     surface: Color(0xFFFFFBFE),
     onSurface: Color(0xFF1C1B1F),
     surfaceVariant: Color(0xFFE7E0EC),

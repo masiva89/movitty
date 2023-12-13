@@ -1,9 +1,7 @@
 import 'package:movitty/feature/home/view/home_view.dart';
-import 'package:movitty/feature/home/view_model/home_view_model.dart';
-import 'package:movitty/product/service/features/auth/login_service.dart';
-import 'package:movitty/product/service/manager/product_network_error_manager.dart';
-import 'package:movitty/product/state/base/base_state.dart';
-import 'package:movitty/product/state/container/product_state_items.dart';
+import 'package:movitty/feature/home/view_model/index.dart';
+import 'package:movitty/product/service/index.dart';
+import 'package:movitty/product/state/index.dart';
 
 /// Manage your home view business logic
 mixin HomeViewMixin on BaseState<HomeView> {

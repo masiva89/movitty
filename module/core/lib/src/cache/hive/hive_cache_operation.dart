@@ -25,6 +25,7 @@ class HiveCacheOperation<T extends CacheModel> extends CacheOperation<T> {
 
   @override
   void clear() {
+    log('HiveCacheOperation.clear');
     _box.clear();
   }
 

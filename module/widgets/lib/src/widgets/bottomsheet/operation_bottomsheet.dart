@@ -6,6 +6,7 @@ class OperationBottomsheet extends StatelessWidget {
   /// Constructor for bottomsheet
   const OperationBottomsheet({
     required this.title,
+    required this.titleStyle,
     required this.body,
     super.key,
     this.onConfirm,
@@ -14,6 +15,9 @@ class OperationBottomsheet extends StatelessWidget {
 
   /// Title for the bottomsheet
   final String title;
+
+  /// Title style for the bottomsheet
+  final TextStyle titleStyle;
 
   /// Show the bottomsheet for operation
   final Widget body;
@@ -37,6 +41,7 @@ class OperationBottomsheet extends StatelessWidget {
           body: body,
           onConfirm: onConfirm,
           onCancel: onCancel,
+          titleStyle: titleStyle,
         ),
       );
     } else {
@@ -47,6 +52,7 @@ class OperationBottomsheet extends StatelessWidget {
           body: body,
           onConfirm: onConfirm,
           onCancel: onCancel,
+          titleStyle: titleStyle,
         ),
       );
     }
@@ -60,18 +66,36 @@ class OperationBottomsheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const SizedBox(),
-              IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  onCancel?.call();
-                },
-                icon: const Icon(Icons.close),
-              ),
-            ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: titleStyle.fontSize ?? 0),
+            child: Flex(
+              direction: Axis.horizontal,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(
+                  fit: FlexFit.tight,
+                  flex: 10,
+                  child: Text(title, style: titleStyle),
+                ),
+                Flexible(
+                  fit: FlexFit.tight,
+                  flex: 2,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      onCancel?.call();
+                    },
+                    icon: Icon(
+                      Icons.cancel_rounded,
+                      size: titleStyle.fontSize! * 1.5,
+                      color: titleStyle.color,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           body,
           ElevatedButton(

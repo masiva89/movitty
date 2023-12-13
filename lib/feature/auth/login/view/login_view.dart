@@ -10,7 +10,7 @@ import 'package:movitty/product/navigation/app_router.dart';
 import 'package:movitty/product/state/base/base_state.dart';
 import 'package:movitty/product/utility/constants/decoration/project_spacer.dart';
 import 'package:movitty/product/utility/constants/decoration/text_styles.dart';
-import 'package:movitty/product/widget/appbar/auth_appbar.dart';
+import 'package:movitty/product/widget/appbar/auth_app_bar.dart';
 import 'package:movitty/product/widget/button/custom_login/custom_login_button.dart';
 import 'package:movitty/product/widget/button/custom_text_button.dart';
 import 'package:movitty/product/widget/button/normal_button.dart';
@@ -71,7 +71,7 @@ class _LoginViewState extends BaseState<LoginView> with LoginViewMixin {
                       alignment: Alignment.centerRight,
                       child: CustomTextButton(
                         title: 'Şifremi Unuttum',
-                        onPressed: () {},
+                        onPressed: loginViewModel.clearCache,
                       ),
                     ),
                     ProjectSpacer.xLargeHeight(context),

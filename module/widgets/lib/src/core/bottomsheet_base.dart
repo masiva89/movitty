@@ -7,12 +7,13 @@ final class BottomsheetBase {
   static Future<T?> show<T>({
     required BuildContext context,
     required WidgetBuilder builder,
-    bool isDismissible = false,
+    bool isDismissible = true,
   }) async {
     return showModalBottomSheet<T>(
       context: context,
       builder: builder,
       isDismissible: isDismissible,
+      showDragHandle: true,
     );
   }
 

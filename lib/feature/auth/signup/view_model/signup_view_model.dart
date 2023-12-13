@@ -3,7 +3,7 @@
 import 'package:core/core.dart';
 import 'package:movitty/feature/auth/signup/view_model/state/signup_state.dart';
 import 'package:movitty/product/cache/model/user_cache_model.dart';
-import 'package:movitty/product/service/interface/authenction_operation.dart';
+import 'package:movitty/product/service/interface/authentication_operation.dart';
 import 'package:movitty/product/state/base/base_cubit.dart';
 import 'package:movitty/product/utility/validator/form_validator.dart';
 import 'package:movitty/product/widget/alert/project_snackbar.dart';

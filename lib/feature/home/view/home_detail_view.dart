@@ -21,22 +21,16 @@ class _HomeDetailViewState extends State<HomeDetailView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text('Home Detail View'),
-      ),
-      body: Column(
-        children: [
-          Text('id: ${widget.id}'),
-          ElevatedButton(
-            onPressed: () {
-              AutoRouter.of(context).pop();
-            },
-            child: const Text('Pop'),
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        Text('id: ${widget.id}'),
+        ElevatedButton(
+          onPressed: () {
+            AutoRouter.of(context).pop();
+          },
+          child: const Text('Pop'),
+        ),
+      ],
     );
   }
 }

@@ -1,9 +1,10 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:movitty/feature/auth/login/view/login_view.dart';
 import 'package:movitty/feature/auth/login/view_model/state/login_state.dart';
 import 'package:movitty/product/cache/model/auth_cache_model.dart';
-import 'package:movitty/product/service/interface/authenction_operation.dart';
+import 'package:movitty/product/service/interface/authentication_operation.dart';
 import 'package:movitty/product/state/base/base_cubit.dart';
 import 'package:movitty/product/widget/alert/project_snackbar.dart';
 
@@ -20,7 +21,10 @@ final class LoginViewModel extends BaseCubit<LoginState> {
   final AuthenticationOperation _authenticationOperationService;
   final HiveCacheOperation<AuthCacheModel> _authCacheOperation;
 
+  /// Username controller to use in [TextField] in [LoginView]
   TextEditingController usernameController = TextEditingController();
+
+  /// Password controller to use in [TextField] in [LoginView]
   TextEditingController passwordController = TextEditingController();
 
   /// Change loading state
@@ -28,6 +32,7 @@ final class LoginViewModel extends BaseCubit<LoginState> {
     emit(state.copyWith(isLoading: !state.isLoading));
   }
 
+  /// Login event to use in [LoginView]
   Future<bool> login() async {
     changeLoading();
     await Future.delayed(const Duration(seconds: 2)).then((value) {
@@ -47,5 +52,10 @@ final class LoginViewModel extends BaseCubit<LoginState> {
     changeLoading();
     print('login');
     return true;
+  }
+
+  /// Clear cache event to use in Login Feature
+  void clearCache() {
+    _authCacheOperation.clear();
   }
 }

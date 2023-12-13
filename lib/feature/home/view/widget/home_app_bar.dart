@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movitty/feature/home/view_model/home_view_model.dart';
-import 'package:movitty/feature/home/view_model/state/home_state.dart';
+import 'package:gen/gen.dart';
+import 'package:movitty/feature/home/view_model/index.dart';
+import 'package:movitty/product/utility/constants/index.dart';
+import 'package:widgets/widgets.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      actions: const [
-        _Loading(),
-      ],
+    return CustomAppBar(
+      title: Assets.images.mainLogoSvg.svg(
+        package: 'gen',
+        height: ProjectSize.xxlarge.responsive(context),
+      ),
     );
+    /* AppBar(
+      title: const Text('Home'),
+      titleTextStyle: const TextStyle(
+        color: Colors.white,
+      ),
+      /* actions: const [
+        _Loading(),
+      ], */
+    ); */
   }
 
   @override

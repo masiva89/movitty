@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:movitty/product/utility/constants/decoration/project_size.dart';
 import 'package:movitty/product/utility/constants/decoration/project_spacer.dart';
 import 'package:movitty/product/utility/constants/decoration/text_styles.dart';
 
@@ -22,18 +23,21 @@ class NavigateBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Assets.icons.backFilled.svg(
-            package: 'gen',
-          ),
-          ProjectSpacer.xSmallWidth(context),
-          Text(
-            title,
-            style: TextStyles.textButton(context),
-          ),
-        ],
+      child: Padding(
+        padding: EdgeInsets.only(left: ProjectSize.small.responsive(context)),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Assets.icons.backFilled.svg(
+              package: 'gen',
+            ),
+            ProjectSpacer.xSmallWidth(context),
+            Text(
+              title,
+              style: TextStyles.textButton(context, color: ColorName.primary4),
+            ),
+          ],
+        ),
       ),
     );
   }

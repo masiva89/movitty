@@ -20,6 +20,7 @@ final class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           page: LoginRoute.page,
+          initial: true,
           path: '/login',
         ),
         AutoRoute(
@@ -28,7 +29,6 @@ final class AppRouter extends _$AppRouter {
         ),
         AdaptiveRoute(
           page: DashboardRoute.page,
-          initial: true,
           path: '/dashboard',
           children: [
             AutoRoute(
@@ -48,6 +48,9 @@ final class AppRouter extends _$AppRouter {
                   page: HomeSecondRoute.page,
                   path: 'second',
                   type: const RouteType.adaptive(),
+                  guards: [
+                    AuthGuard(),
+                  ],
                 ),
               ],
             ),

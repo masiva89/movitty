@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:gen/gen.dart';
-import 'package:movitty/product/service/interface/authenction_operation.dart';
+import 'package:movitty/product/service/interface/authentication_operation.dart';
 import 'package:movitty/product/service/manager/product_service_path.dart';
 import 'package:vexana/vexana.dart';
 

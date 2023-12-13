@@ -137,6 +137,7 @@ class _TestCustomTextfieldState extends State<TestCustomTextfield> {
       obscureText: _isObscure,
       style: _textStyle,
       focusNode: _focusNode,
+      cursorHeight: _pads.fontSize,
       decoration: InputDecoration(
         error: _errorWidget,
         hintText: widget.hintText,
