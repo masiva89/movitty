@@ -14,9 +14,24 @@ final class CustomDarkTheme implements CustomTheme {
         splashColor: ColorName.primary2.withOpacity(0.2),
         highlightColor: ColorName.primary2.withOpacity(0.2),
         scaffoldBackgroundColor: ColorName.backgroundPrimary,
+        dialogTheme: dialogTheme,
       );
 
   @override
   final FloatingActionButtonThemeData floatingActionButtonThemeData =
       const FloatingActionButtonThemeData();
+
+  @override
+  final DialogTheme dialogTheme = DialogTheme(
+    titleTextStyle: TextStyle(
+      color: ColorName.primary3,
+      fontSize: 24,
+      fontWeight: const TextTheme().titleMedium?.fontWeight,
+    ),
+    contentTextStyle: TextStyle(
+      color: ColorName.primary4,
+      fontSize: 18,
+      fontWeight: const TextTheme().bodyMedium?.fontWeight,
+    ),
+  );
 }

@@ -6,6 +6,7 @@ import 'package:movitty/feature/dashboard/view/mixin/dashboard_mixin.dart';
 import 'package:movitty/main.dart';
 import 'package:movitty/product/navigation/app_router.dart';
 import 'package:movitty/product/widget/navigation/custom_navigation_bar.dart';
+import 'package:widgets/widgets.dart';
 
 @RoutePage()
 class DashboardView extends StatefulWidget {
@@ -29,7 +30,18 @@ class _DashboardViewState extends State<DashboardView> with DashboardMixin {
           /* await context.router.navigate(
               DashboardRoute(children: [HomeDetailRoute(id: 'id')]),
             ); */
-          await context.router.push(const HomeSecondRoute());
+          //await context.router.push(const HomeSecondRoute());
+          final result = await OptionDialog.show(
+            title: 'title',
+            message: 'message',
+            context: context,
+          );
+          print(result);
+          /* await QuestionDialog.show(
+            title: 'Giriş Yap ULAN!',
+            context: context,
+          ); */
+          //await SuccessDialog.show(title: 'title', context: context);
         },
       ),
       routes: [
