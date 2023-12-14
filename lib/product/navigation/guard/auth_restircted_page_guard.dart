@@ -1,12 +1,14 @@
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:gen/gen.dart';
 import 'package:movitty/product/navigation/app_router.dart';
 import 'package:movitty/product/navigation/guard/enum/user_status.dart';
 import 'package:movitty/product/navigation/guard/mixin/guard_mixin.dart';
-import 'package:widgets/widgets.dart';
+import 'package:movitty/product/widget/dialog/project_dialog.dart';
 
+/// A guard that restricts access to certain pages based on the user's
+/// authentication status. This guard is used to prevent unauthorized access to
+/// protected pages.
 class AuthRestrictedPageGuard extends AutoRouteGuard with GuardMixin {
   @override
   Future<void> onNavigation(
@@ -20,15 +22,13 @@ class AuthRestrictedPageGuard extends AutoRouteGuard with GuardMixin {
         resolver.next();
       case UserStatus.loggedIn:
         log('User is not logged in');
-        final result = await OptionDialog.show(
+        final result = await ProjectDialog.showOptionDialog(
           context: router.navigatorKey.currentState!.context,
           title: 'Giriş Yap',
-          message: 'Bu özellikten faydalanmak için giriş yapmalısınız.',
-          closeButtonText: 'Kapat',
+          content: 'Bu özellikten faydalanmak için giriş yapmalısınız.',
           checkButtonText: 'Giriş Yap',
-          checkColor: ColorName.primary,
         );
-        if (result ?? false) {
+        if (result) {
           await router.replace(const LoginRoute());
         }
     }

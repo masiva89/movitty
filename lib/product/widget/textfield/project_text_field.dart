@@ -41,7 +41,8 @@ class ProjectTextField extends StatefulWidget {
   final SvgGenImage? prefixIcon;
   final ITextFieldValidator? validator;
   final bool isActive;
-  final Function(bool)? onValidate;
+  // ignore: inference_failure_on_function_return_type
+  final Function({bool value})? onValidate;
 
   @override
   State<ProjectTextField> createState() => _ProjectTextFieldState();
@@ -80,12 +81,12 @@ class _ProjectTextFieldState extends State<ProjectTextField> {
             widget.onChanged?.call(value);
             final validation = _validator?.onUpdate(value);
             setState(() {});
-            widget.onValidate?.call(validation ?? false);
+            widget.onValidate?.call(value: validation ?? false);
           },
           onSubmitted: (p0) {
             final validation = _validator?.validate();
             setState(() {});
-            widget.onValidate?.call(validation ?? false);
+            widget.onValidate?.call(value: validation ?? false);
           },
           textInputAction: widget.textInputAction,
           isPassword: widget.isPassword,

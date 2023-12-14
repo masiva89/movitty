@@ -10,6 +10,11 @@ final class QuestionAnswer {
   /// user's answer to the question.
   QuestionAnswer({required this.response});
 
+  /// Creates an empty question and answer dialog.
+  ///
+  /// The [response] is initialized as an empty string.
+  QuestionAnswer.empty() : response = '';
+
   /// Answer text
   final String response;
 }
