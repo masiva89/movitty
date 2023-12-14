@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gen/gen.dart';
+import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/splash/view/mixin/splash_view_mixin.dart';
 import 'package:movitty/product/state/base/base_state.dart';
 
@@ -20,10 +22,12 @@ class _SplashViewState extends BaseState<SplashView> with SplashViewMixin {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => splashViewModel,
-      child: const Scaffold(
-        //TODO: Edit this view add Movitty logo or else to the center.
+      child: Scaffold(
         body: Center(
-          child: Text('Splash View'),
+          child: Assets.images.mainLogoFullSvg.svg(
+            package: 'gen',
+            width: context.general.mediaSize.width * 0.8,
+          ),
         ),
       ),
     );
