@@ -2,7 +2,7 @@ import 'package:core/core.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/product/cache/path/cache_path.dart';
-import 'package:movitty/product/navigation/guard/user_status.dart';
+import 'package:movitty/product/navigation/guard/enum/user_status.dart';
 
 /// [AuthCacheModel] is a cache model for auth.
 final class AuthCacheModel with CacheModel {

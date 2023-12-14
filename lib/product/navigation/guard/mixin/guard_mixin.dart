@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:auto_route/auto_route.dart';
 import 'package:movitty/product/cache/path/cache_path.dart';
 import 'package:movitty/product/cache/product_cache.dart';
-import 'package:movitty/product/navigation/guard/user_status.dart';
+import 'package:movitty/product/navigation/guard/enum/user_status.dart';
 import 'package:movitty/product/state/container/index.dart';
 
 /// [GuardMixin] is a mixin for guards.

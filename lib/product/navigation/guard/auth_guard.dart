@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:movitty/product/navigation/app_router.dart';
+import 'package:movitty/product/navigation/guard/enum/user_status.dart';
 import 'package:movitty/product/navigation/guard/mixin/guard_mixin.dart';
-import 'package:movitty/product/navigation/guard/user_status.dart';
 
 @immutable
 

@@ -9,6 +9,7 @@ import 'package:movitty/feature/home/view/home_second_view.dart';
 import 'package:movitty/feature/home/view/home_view.dart';
 import 'package:movitty/product/navigation/guard/already_on_page_guard.dart';
 import 'package:movitty/product/navigation/guard/auth_guard.dart';
+import 'package:movitty/product/navigation/guard/auth_restircted_page_guard.dart';
 
 part 'app_router.gr.dart';
 
@@ -50,7 +51,8 @@ final class AppRouter extends _$AppRouter {
                   path: 'second',
                   type: const RouteType.adaptive(),
                   guards: [
-                    AuthGuard(),
+                    //AuthGuard(),
+                    AuthRestrictedPageGuard(),
                     AlreadyOnPageGuard(),
                   ],
                 ),
@@ -59,6 +61,9 @@ final class AppRouter extends _$AppRouter {
             AutoRoute(
               page: HomeDetailRoute.page,
               path: 'detail',
+              guards: [
+                AuthRestrictedPageGuard(),
+              ],
             ),
           ],
         ),

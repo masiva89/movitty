@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/src/core/dialog_base.dart';
+import 'package:widgets/src/widgets/dialog/components/dialog_button.dart';
 
 /// A dialog that presents options to the user and returns a boolean value
 /// based on the user's selection.
@@ -35,11 +36,14 @@ import 'package:widgets/src/core/dialog_base.dart';
 class OptionDialog extends StatefulWidget {
   /// Constructor for dialog
   const OptionDialog({
+    required this.closeButtonText,
+    required this.checkButtonText,
+    required this.showActionIcons,
     super.key,
     this.title,
     this.message,
-    this.closeButtonText,
-    this.checkButtonText,
+    this.closeColor,
+    this.checkColor,
   });
 
   /// Title for the dialog.
@@ -49,10 +53,20 @@ class OptionDialog extends StatefulWidget {
   final String? message;
 
   /// Text for the close button.
-  final String? closeButtonText;
+  final String closeButtonText;
 
   /// Text for the check button.
-  final String? checkButtonText;
+  final String checkButtonText;
+
+  /// If it's true, the dialog will display the action icons.
+  /// Otherwise, the dialog will display the only action texts.
+  ///
+  /// Defaults to false.
+  final bool showActionIcons;
+
+  final Color? closeColor;
+
+  final Color? checkColor;
 
   @override
   State<OptionDialog> createState() => _OptionDialogState();
@@ -61,15 +75,25 @@ class OptionDialog extends StatefulWidget {
   /// specified [title] and [message] and returns a [Future<bool?>] that
   /// represents the user's selection.
   static Future<bool?> show({
-    required String title,
-    required String message,
     required BuildContext context,
+    required String closeButtonText,
+    required String checkButtonText,
+    String? title,
+    String? message,
+    bool showActionIcons = false,
+    Color? closeColor,
+    Color? checkColor,
   }) async {
     return DialogBase.show<bool>(
       context: context,
       builder: (context) => OptionDialog(
         title: title,
         message: message,
+        closeButtonText: closeButtonText,
+        checkButtonText: checkButtonText,
+        showActionIcons: showActionIcons,
+        checkColor: checkColor,
+        closeColor: closeColor,
       ),
     );
   }
@@ -79,16 +103,26 @@ class _OptionDialogState extends State<OptionDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog.adaptive(
-      title: Text(widget.title ?? ''),
-      content: Text(widget.message ?? ''),
+      title: widget.title != null ? Text(widget.title!) : null,
+      content: widget.message != null ? Text(widget.message!) : null,
       actions: [
-        IconButton(
-          onPressed: () => Navigator.of(context).pop(false),
+        DialogButton(
+          onPressed: () {
+            Navigator.of(context).pop(false);
+          },
+          label: widget.closeButtonText,
           icon: const Icon(Icons.close),
+          color: widget.closeColor,
+          showIcon: widget.showActionIcons,
         ),
-        IconButton(
-          onPressed: () => Navigator.of(context).pop(true),
+        DialogButton(
+          onPressed: () {
+            Navigator.of(context).pop(true);
+          },
+          label: widget.checkButtonText,
           icon: const Icon(Icons.check),
+          color: widget.checkColor,
+          showIcon: widget.showActionIcons,
         ),
       ],
     );
