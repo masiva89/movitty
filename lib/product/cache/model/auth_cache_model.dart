@@ -33,6 +33,7 @@ final class AuthCacheModel with CacheModel {
   @override
   Map<String, dynamic> toJson() => productUser.toJson();
 
+  /// [copyWith] is a method to copy with.
   AuthCacheModel copyWith({
     ProductUser? productUser,
   }) {

@@ -10,6 +10,7 @@ final class ProductCache {
 
   final CacheManager _cacheManager;
 
+  /// [init] is a method for init cache manager.
   Future<void> init() async {
     await _cacheManager.init(
       items: [
@@ -23,7 +24,7 @@ final class ProductCache {
   late final HiveCacheOperation<UserCacheModel> userCacheOperation =
       HiveCacheOperation<UserCacheModel>();
 
-  /// [authCacheModel] is a cache operation for [AuthCacheModel].
-  late final HiveCacheOperation<AuthCacheModel> authCacheModel =
+  /// [authCacheOperation] is a cache operation for [AuthCacheModel].
+  late final HiveCacheOperation<AuthCacheModel> authCacheOperation =
       HiveCacheOperation<AuthCacheModel>();
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movitty/feature/home/view/home_navigation_view.dart';
+import 'package:movitty/feature/home/view/home_nav_view.dart';
 
 /// Enum representing the inner navigation paths in the Movitty app.
 enum InnerPath {

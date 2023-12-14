@@ -33,6 +33,7 @@ final class UserCacheModel with CacheModel {
     return user.toJson();
   }
 
+  /// [copyWith] is a method to copy with.
   UserCacheModel copyWith({
     User? user,
   }) {

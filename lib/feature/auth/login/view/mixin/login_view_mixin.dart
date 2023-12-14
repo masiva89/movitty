@@ -48,7 +48,7 @@ mixin LoginViewMixin on BaseState<LoginView> {
 
     _loginViewModel = LoginViewModel(
       operationService: LoginService(productNetworkManager),
-      authCacheOperation: ProductStateItems.productCache.authCacheModel,
+      authCacheOperation: ProductStateItems.productCache.authCacheOperation,
     );
   }
 }

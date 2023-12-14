@@ -16,7 +16,7 @@ mixin GuardMixin on AutoRouteGuard {
   UserStatus get userAuthStatus {
     log('[userAuthStatus]');
     final authCacheModel =
-        _productCache.authCacheModel.get(CachePath.auth.value);
+        _productCache.authCacheOperation.get(CachePath.auth.value);
     if (authCacheModel == null) return UserStatus.notLoggedIn;
     log('[userAuthStatus] ${authCacheModel.userStatus}');
     return authCacheModel.userStatus;
