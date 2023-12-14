@@ -5,7 +5,6 @@ import 'package:movitty/feature/auth/signup/view/mixin/signup_view_mixin.dart';
 import 'package:movitty/feature/auth/signup/view_model/signup_view_model.dart';
 import 'package:movitty/feature/auth/signup/view_model/state/signup_state.dart';
 import 'package:movitty/product/state/base/base_state.dart';
-import 'package:movitty/product/utility/constants/decoration/text_styles.dart';
 import 'package:movitty/product/utility/constants/index.dart';
 import 'package:movitty/product/widget/appbar/auth_app_bar.dart';
 import 'package:movitty/product/widget/button/custom_signup/custom_signup_button.dart';

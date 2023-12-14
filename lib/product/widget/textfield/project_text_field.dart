@@ -1,14 +1,9 @@
-// ignore_for_file: public_member_api_docs
+// ignore_for_file: public_member_api_docs, avoid_positional_boolean_parameters
 
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
-import 'package:movitty/product/utility/constants/decoration/enums/font_sizes.dart';
-import 'package:movitty/product/utility/constants/decoration/extension/responsive_ext.dart';
-import 'package:movitty/product/utility/constants/decoration/project_radius.dart';
-import 'package:movitty/product/utility/constants/decoration/project_size.dart';
-import 'package:movitty/product/utility/constants/decoration/text_styles.dart';
+import 'package:movitty/product/utility/constants/index.dart';
 import 'package:movitty/product/utility/validator/i_textfield_validator.dart';
-import 'package:movitty/product/widget/textfield/test_custom_textfield.dart';
 import 'package:widgets/widgets.dart';
 
 /// Project textfield.
@@ -42,7 +37,7 @@ class ProjectTextField extends StatefulWidget {
   final ITextFieldValidator? validator;
   final bool isActive;
   // ignore: inference_failure_on_function_return_type
-  final Function({bool value})? onValidate;
+  final Function(bool)? onValidate;
 
   @override
   State<ProjectTextField> createState() => _ProjectTextFieldState();
@@ -72,7 +67,7 @@ class _ProjectTextFieldState extends State<ProjectTextField> {
     );
     return Stack(
       children: [
-        TestCustomTextfield(
+        CustomTextfield(
           errorWidget: _validator?.alertWidget,
           prefixIcon: widget.prefixIcon?.svg(package: 'gen'),
           focusNode: widget.focusNode,
@@ -81,12 +76,12 @@ class _ProjectTextFieldState extends State<ProjectTextField> {
             widget.onChanged?.call(value);
             final validation = _validator?.onUpdate(value);
             setState(() {});
-            widget.onValidate?.call(value: validation ?? false);
+            widget.onValidate?.call(validation ?? false);
           },
           onSubmitted: (p0) {
             final validation = _validator?.validate();
             setState(() {});
-            widget.onValidate?.call(value: validation ?? false);
+            widget.onValidate?.call(validation ?? false);
           },
           textInputAction: widget.textInputAction,
           isPassword: widget.isPassword,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-/// TextFieldPads is a class that contains the padding values for the custom textfield.
+/// A class that represents the sizes of a text field.
+///
+/// This class is used to set the sizes of a text field.
 class TextFieldSizes {
-  /// TextFieldPads constructor.
+  /// Constructs a [TextFieldSizes] instance with the given parameters.
   TextFieldSizes({
     this.fontSize,
     this.height,
@@ -10,9 +12,7 @@ class TextFieldSizes {
     this.iconSize,
     this.padding,
     this.radius,
-  }) {
-    print('TextFieldPads init');
-  }
+  });
 
   /// TextField's font size.
   final double? fontSize;
