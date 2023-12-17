@@ -18,7 +18,7 @@ class SplashViewModel extends BaseCubit<SplashState> with SplashViewModelMixin {
   Future<void> testInit(BuildContext context) async {
     log('[testInit]');
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 30));
     try {
       navigateToApp(context: context, userStatus: userAuthStatus);
     } catch (e) {

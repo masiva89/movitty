@@ -302,12 +302,16 @@ class $AssetsImagesGen {
 class $AssetsLottieGen {
   const $AssetsLottieGen();
 
+  /// File path: assets/lottie/anim_splash_logo.json
+  LottieGenImage get animSplashLogo =>
+      const LottieGenImage('assets/lottie/anim_splash_logo.json');
+
   /// File path: assets/lottie/anim_zombie.json
   LottieGenImage get animZombie =>
       const LottieGenImage('assets/lottie/anim_zombie.json');
 
   /// List of all assets
-  List<LottieGenImage> get values => [animZombie];
+  List<LottieGenImage> get values => [animSplashLogo, animZombie];
 }
 
 class Assets {

@@ -24,9 +24,12 @@ class _SplashViewState extends BaseState<SplashView> with SplashViewMixin {
       create: (context) => splashViewModel,
       child: Scaffold(
         body: Center(
-          child: Assets.images.mainLogoFullSvg.svg(
+          //TODO: The lottie is broken. Fix it later.
+          child: Assets.lottie.animSplashLogo.lottie(
             package: 'gen',
-            width: context.general.mediaSize.width * 0.8,
+            fit: BoxFit.cover,
+            repeat: false,
+            width: context.general.mediaSize.width,
           ),
         ),
       ),
