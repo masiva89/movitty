@@ -21,4 +21,37 @@ final class SignupService extends AuthenticationOperation {
 
     return response.data ?? [];
   }
+
+  @override
+  Future<EmptyNetworkModel> signUp(
+    String username,
+    String password,
+    String email,
+    String passwordConfirmation,
+    int agreement,
+  ) async {
+    final response =
+        await _networkManager.send<EmptyNetworkModel, EmptyNetworkModel>(
+      ProductServicePath.signUp.value,
+      parseModel: EmptyNetworkModel(),
+      method: RequestType.POST,
+      data: {
+        'username': username,
+        'password': password,
+        'email': email,
+        'password_confirmation': passwordConfirmation,
+        'agreement': agreement,
+      },
+    );
+    return response.data ?? EmptyNetworkModel.empty();
+  }
+
+  @override
+  Future<ProductUser> login(
+    String username,
+    String password,
+    String firebaseToken,
+  ) {
+    throw UnimplementedError();
+  }
 }

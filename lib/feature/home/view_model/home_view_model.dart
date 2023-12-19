@@ -27,9 +27,9 @@ final class HomeViewModel extends BaseCubit<HomeState> {
   /// Get users
   Future<void> fetchUsers() async {
     CustomLogger.showError<User>(usersFromCache);
-    final response = await _authenticationOperationService.users();
+    /* final response = await _authenticationOperationService.users();
     _saveItems(response);
-    emit(state.copyWith(users: response));
+    emit(state.copyWith(users: response)); */
   }
 
   /// Save users to cache

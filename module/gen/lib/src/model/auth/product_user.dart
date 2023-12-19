@@ -1,5 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vexana/vexana.dart';
+
+import '../network_base_mixin.dart';
 
 part 'product_user.g.dart';
 
@@ -7,13 +10,43 @@ part 'product_user.g.dart';
 
 /// [ProductUser] is a model for user.
 /// This model is used for auth.
-class ProductUser with EquatableMixin {
+class ProductUser extends INetworkModel<ProductUser>
+    with EquatableMixin, NetworkBaseMixin<ProductUser> {
   /// constructor
-  ProductUser({this.userId, this.token, this.refreshToken, this.firebaseToken});
+  ProductUser({
+    this.userId,
+    this.token,
+    this.refreshToken,
+    this.firebaseToken,
+  });
 
-  /// The constructor for create [ProductUser] from json.
+  /// Represents an empty [ProductUser].
+  ///
+  /// This class is used to create an instance of [ProductUser] with empty
+  /// values.
+  ///
+  /// Example usage:
+  ///
+  /// ```dart
+  /// ProductUser.empty();
+  /// ```
+  ///
+  /// See also:
+  ///
+  /// - [ProductUser], the model class representing a product user.
+  ///
+  /// FILEPATH: /Users/gorsentam/Desktop/Movitty/dev/app/movitty/module/gen/lib/src/model/auth/product_user.dart
+  ProductUser.empty();
+
   factory ProductUser.fromJson(Map<String, dynamic> json) =>
       _$ProductUserFromJson(json);
+
+  @override
+
+  /// The constructor for create [ProductUser] from json.
+  ProductUser fromJson(Map<String, dynamic> json) {
+    return _$ProductUserFromJson(json);
+  }
 
   /// [userId] is an ID using for auth.
   String? userId;
@@ -31,6 +64,7 @@ class ProductUser with EquatableMixin {
   List<Object?> get props => [userId, token, refreshToken, firebaseToken];
 
   /// The method for create json from [ProductUser].
+  @override
   Map<String, dynamic> toJson() => _$ProductUserToJson(this);
 
   /// The method for create [ProductUser] from json.

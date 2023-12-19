@@ -10,10 +10,14 @@ final class AppEnvironment {
 
   /// General application environment setup
   AppEnvironment.general() {
-    _config = !kDebugMode ? DevEnv() : ProdEnv();
+    _config = kDebugMode ? DevEnv() : ProdEnv();
   }
 
   static late final AppConfiguration _config;
+
+  /// Get application environment configuration
+  /// [DevEnv] and [ProdEnv] are the classes that contain the application
+  static AppConfiguration get config => _config;
 }
 
 /// Get application environment items
