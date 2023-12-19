@@ -1,4 +1,8 @@
 {
-    "userId": "2",
-    "token": "kjlbHIUgtıu9y98hog87Gog9tGUIGF87R879gub"
+    "success": 1,
+    "message": "Giriş başarılı!",
+    "data": {
+        "userId": "2",
+        "token": "kjlbHIUgtıu9y98hog87Gog9tGUIGF87R879gub"
+    }
 }

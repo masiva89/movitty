@@ -30,9 +30,10 @@ final class LoginService extends AuthenticationOperation {
     String password,
     String firebaseToken,
   ) async {
-    final response = await _networkManager.send<ProductUser, ProductUser>(
+    final response = await _networkManager
+        .send<BaseResponseModel<ProductUser>, BaseResponseModel<ProductUser>>(
       ProductServicePath.login.value,
-      parseModel: ProductUser(),
+      parseModel: BaseResponseModel<ProductUser>(),
       method: RequestType.POST,
       isErrorDialog: true,
       onReceiveProgress: (progress, total) {
@@ -44,7 +45,7 @@ final class LoginService extends AuthenticationOperation {
         'firebase_token': firebaseToken,
       },
     );
-    log('response: $response', name: 'LoginService.login');
+    /* log('response: ${response.data}', name: 'LoginService.login');
     log('response.data: ${response.data}', name: 'LoginService.login');
     log('response.error: ${response.error}', name: 'LoginService.login');
     log(
@@ -54,8 +55,16 @@ final class LoginService extends AuthenticationOperation {
     log(
       'response.error.statusCode: ${response.error?.statusCode}',
       name: 'LoginService.login',
+    ); */
+    log(
+      'SUCCESS: ${response.data!.success}',
+      name: 'LoginService.login',
     );
-    return response.data ?? ProductUser.empty();
+    log(
+      'MESSAGE: ${response.data!.message}',
+      name: 'LoginService.login',
+    );
+    return response.data?.data ?? ProductUser.empty();
   }
 
   @override
