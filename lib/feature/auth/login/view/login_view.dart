@@ -76,7 +76,7 @@ class _LoginViewState extends BaseState<LoginView> with LoginViewMixin {
                     ),
                     ProjectSpacer.xLargeHeight(context),
                     CustomLoginButton(
-                      onOperation: loginViewModel.login,
+                      onOperation: loginViewModel.onPressedLogin,
                     ),
                     ProjectSpacer.xLargeHeight(context),
                     NormalButton(

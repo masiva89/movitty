@@ -35,6 +35,9 @@ class BaseResponseModel<T extends INetworkModel<T>>
   /// ```
   BaseResponseModel({this.data, this.success, this.message});
 
+  /// Creates an instance of [BaseResponseModel].
+  BaseResponseModel.empty();
+
   /// The success status of the network request.
   int? success;
 

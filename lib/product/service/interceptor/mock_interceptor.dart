@@ -3,16 +3,23 @@ import 'dart:developer';
 import 'package:dio/src/response.dart';
 import 'package:movitty/product/service/mock/mock_response_loader.dart';
 import 'package:movitty/product/service/mock/mock_response_type.dart';
+import 'package:movitty/product/widget/alert/project_snackbar.dart';
 import 'package:vexana/vexana.dart';
 
 /// A mock interceptor that implements the [Interceptor] interface.
 class MockInterceptor implements Interceptor {
   final _jsonDir = 'assets/mock/';
 
-  final _responseType = MockResponseType.success;
+  final _responseType = MockResponseType.failure;
 
   @override
-  void onError(DioException err, ErrorInterceptorHandler handler) {}
+  void onError(DioException err, ErrorInterceptorHandler handler) {
+    ProjectSnackbar(
+      message: 'Beklenmedik bir hata oluştu.',
+      type: ProjectSnackbarType.error,
+    ).show();
+    handler.next(err);
+  }
 
   @override
   Future<void> onRequest(
@@ -40,6 +47,7 @@ class MockInterceptor implements Interceptor {
           requestOptions: options,
           response: mockResponse,
         ),
+        true,
       );
     }
   }

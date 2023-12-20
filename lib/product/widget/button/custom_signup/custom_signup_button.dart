@@ -3,6 +3,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:movitty/product/navigation/app_router.dart';
 import 'package:movitty/product/widget/button/normal_button.dart';
 import 'package:widgets/widgets.dart';
 

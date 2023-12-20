@@ -93,7 +93,7 @@ class _SignupViewState extends BaseState<SignupView> with SignupViewMixin {
                     ),
                     ProjectSpacer.xLargeHeight(context),
                     CustomSignupButton(
-                      onOperation: signupViewModel.signup,
+                      onOperation: signupViewModel.onPressedSignup,
                     ),
                   ],
                 ),

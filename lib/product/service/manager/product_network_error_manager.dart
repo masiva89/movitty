@@ -24,7 +24,7 @@ final class ProductNetworkErrorManager {
   ///
   /// [value] is the status code of the response.
   ///
-  /// *You can add your error handler here.
+  /// * You can add your error handler here.
   void handleError(int value) {
     switch (value) {
       case HttpStatus.badRequest:

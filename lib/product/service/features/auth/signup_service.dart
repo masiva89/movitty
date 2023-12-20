@@ -3,6 +3,7 @@
 import 'package:gen/gen.dart';
 import 'package:movitty/product/service/interface/authentication_operation.dart';
 import 'package:movitty/product/service/manager/product_service_path.dart';
+import 'package:movitty/product/service/manager/product_service_warning_manager.dart';
 import 'package:vexana/vexana.dart';
 
 final class SignupService extends AuthenticationOperation {
@@ -23,17 +24,17 @@ final class SignupService extends AuthenticationOperation {
   }
 
   @override
-  Future<EmptyNetworkModel> signUp(
-    String username,
-    String password,
-    String email,
-    String passwordConfirmation,
-    int agreement,
-  ) async {
+  Future<BaseResponseModel> signUp({
+    required String username,
+    required String password,
+    required String email,
+    required String passwordConfirmation,
+    required int agreement,
+  }) async {
     final response =
-        await _networkManager.send<EmptyNetworkModel, EmptyNetworkModel>(
+        await _networkManager.send<BaseResponseModel, BaseResponseModel>(
       ProductServicePath.signUp.value,
-      parseModel: EmptyNetworkModel(),
+      parseModel: BaseResponseModel<EmptyModel>(),
       method: RequestType.POST,
       data: {
         'username': username,
@@ -43,15 +44,16 @@ final class SignupService extends AuthenticationOperation {
         'agreement': agreement,
       },
     );
-    return response.data ?? EmptyNetworkModel.empty();
+    warningManager.handleResponse(response.data, type: NetworkHandleType.both);
+    return response.data ?? BaseResponseModel<EmptyModel>.empty();
   }
 
   @override
-  Future<ProductUser> login(
-    String username,
-    String password,
-    String firebaseToken,
-  ) {
+  Future<ProductUser> login({
+    required String username,
+    required String password,
+    required String firebaseToken,
+  }) {
     throw UnimplementedError();
   }
 }

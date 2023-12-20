@@ -1,14 +1,14 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:core/core.dart';
+import 'package:kartal/kartal.dart';
+import 'package:movitty/feature/auth/signup/view_model/cubit/signup_cubit.dart';
 import 'package:movitty/feature/auth/signup/view_model/state/signup_state.dart';
 import 'package:movitty/product/cache/model/user_cache_model.dart';
 import 'package:movitty/product/service/interface/authentication_operation.dart';
-import 'package:movitty/product/state/base/base_cubit.dart';
 import 'package:movitty/product/utility/validator/form_validator.dart';
-import 'package:movitty/product/widget/alert/project_snackbar.dart';
 
-final class SignupViewModel extends BaseCubit<SignupState> {
+final class SignupViewModel extends SignupCubit {
   SignupViewModel({
     required AuthenticationOperation operationService,
     required HiveCacheOperation<UserCacheModel> userCacheModel,
@@ -33,8 +33,20 @@ final class SignupViewModel extends BaseCubit<SignupState> {
     emit(state.copyWith(isLoading: !state.isLoading));
   }
 
-  Future<bool> signup() async {
-    if (!_formValidator.validate()) {
+  @override
+  Future<bool> onPressedSignup() async {
+    try {
+      await _authenticationOperationService.signUp(
+        username: 'username',
+        password: 'password',
+        email: 'email',
+        passwordConfirmation: 'passwordConfirmation',
+        agreement: 1,
+      );
+    } on Exception catch (e) {
+      CustomLogger.showError<Exception>(e);
+    }
+    /* if (!_formValidator.validate()) {
       /* ProjectSnackbar(
         message: 'Lütfen kayıt formunu doğru ve eksiksiz doldurunuz.',
         type: ProjectSnackbarType.error,
@@ -52,7 +64,7 @@ final class SignupViewModel extends BaseCubit<SignupState> {
       ).show();
     });
     changeLoading();
-    print('signup');
+    print('signup'); */
     return true;
   }
 }

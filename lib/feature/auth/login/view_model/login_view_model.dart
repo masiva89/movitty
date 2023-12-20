@@ -4,13 +4,13 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/auth/login/view/login_view.dart';
+import 'package:movitty/feature/auth/login/view_model/cubit/login_cubit.dart';
 import 'package:movitty/feature/auth/login/view_model/state/login_state.dart';
 import 'package:movitty/product/cache/model/auth_cache_model.dart';
 import 'package:movitty/product/service/interface/authentication_operation.dart';
-import 'package:movitty/product/state/base/base_cubit.dart';
 
 /// Manage your login view business logic
-final class LoginViewModel extends BaseCubit<LoginState> {
+final class LoginViewModel extends LoginCubit {
   /// [AuthenticationOperation] service
   LoginViewModel({
     required AuthenticationOperation operationService,
@@ -34,13 +34,14 @@ final class LoginViewModel extends BaseCubit<LoginState> {
   }
 
   /// Login event to use in [LoginView]
-  Future<bool> login() async {
+  @override
+  Future<bool> onPressedLogin() async {
     changeLoading();
     try {
       final response = await _authenticationOperationService.login(
-        'username',
-        'password',
-        'firebaseToken',
+        username: usernameController.text,
+        password: passwordController.text,
+        firebaseToken: 'firebaseToken',
       );
       log('response: ${response.toJson()}');
     } on Exception catch (e) {

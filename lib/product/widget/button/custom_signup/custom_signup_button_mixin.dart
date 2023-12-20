@@ -20,7 +20,11 @@ mixin _CustomSignupButtonMixin
     final response = await widget.onOperation.call();
     await safeOperation(() async {
       if (response) {
-        context.router.popUntilRouteWithPath('/login');
+        try {
+          await context.router.replaceAll([const AuthNavRoute()]);
+        } catch (e) {
+          print(e);
+        }
       }
       _isLoadingNotifier.value = false;
     });

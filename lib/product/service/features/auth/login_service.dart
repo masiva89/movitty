@@ -5,6 +5,7 @@ import 'dart:developer';
 import 'package:gen/gen.dart';
 import 'package:movitty/product/service/interface/index.dart';
 import 'package:movitty/product/service/manager/product_service_path.dart';
+import 'package:movitty/product/service/manager/product_service_warning_manager.dart';
 import 'package:vexana/vexana.dart';
 
 final class LoginService extends AuthenticationOperation {
@@ -25,11 +26,11 @@ final class LoginService extends AuthenticationOperation {
   }
 
   @override
-  Future<ProductUser> login(
-    String username,
-    String password,
-    String firebaseToken,
-  ) async {
+  Future<ProductUser> login({
+    required String username,
+    required String password,
+    required String firebaseToken,
+  }) async {
     final response = await _networkManager
         .send<BaseResponseModel<ProductUser>, BaseResponseModel<ProductUser>>(
       ProductServicePath.login.value,
@@ -45,36 +46,26 @@ final class LoginService extends AuthenticationOperation {
         'firebase_token': firebaseToken,
       },
     );
-    /* log('response: ${response.data}', name: 'LoginService.login');
-    log('response.data: ${response.data}', name: 'LoginService.login');
-    log('response.error: ${response.error}', name: 'LoginService.login');
+    warningManager.handleResponse(response.data, type: NetworkHandleType.both);
     log(
-      'response.error.description: ${response.error?.description}',
+      'SUCCESS: ${response.data?.success}',
       name: 'LoginService.login',
     );
     log(
-      'response.error.statusCode: ${response.error?.statusCode}',
-      name: 'LoginService.login',
-    ); */
-    log(
-      'SUCCESS: ${response.data!.success}',
-      name: 'LoginService.login',
-    );
-    log(
-      'MESSAGE: ${response.data!.message}',
+      'MESSAGE: ${response.data?.message}',
       name: 'LoginService.login',
     );
     return response.data?.data ?? ProductUser.empty();
   }
 
   @override
-  Future<EmptyNetworkModel> signUp(
-    String username,
-    String password,
-    String email,
-    String passwordConfirmation,
-    int agreement,
-  ) {
+  Future<BaseResponseModel> signUp({
+    required String username,
+    required String password,
+    required String email,
+    required String passwordConfirmation,
+    required int agreement,
+  }) {
     throw UnimplementedError();
   }
 }
