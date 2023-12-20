@@ -1,6 +1,6 @@
 {
     "success": 1,
-    "message": "Giriş başarılı!",
+    "message": "Başarıyla giriş yapıldı!",
     "data": {
         "userId": "2",
         "token": "kjlbHIUgtıu9y98hog87Gog9tGUIGF87R879gub"

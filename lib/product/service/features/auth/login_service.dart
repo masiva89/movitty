@@ -34,9 +34,8 @@ final class LoginService extends AuthenticationOperation {
     final response = await _networkManager
         .send<BaseResponseModel<ProductUser>, BaseResponseModel<ProductUser>>(
       ProductServicePath.login.value,
-      parseModel: BaseResponseModel<ProductUser>(),
+      parseModel: BaseResponseModel<ProductUser>(data: ProductUser()),
       method: RequestType.POST,
-      isErrorDialog: true,
       onReceiveProgress: (progress, total) {
         log('progress: $progress, total: $total', name: 'LoginService.login');
       },
@@ -55,7 +54,28 @@ final class LoginService extends AuthenticationOperation {
       'MESSAGE: ${response.data?.message}',
       name: 'LoginService.login',
     );
-    return response.data?.data ?? ProductUser.empty();
+    log(
+      'DATA-Object: ${response.data}',
+      name: 'LoginService.login',
+    );
+    log(
+      'DATA-Object2: ${response.data?.data}',
+      name: 'LoginService.login',
+    );
+    log(
+      'ERROR-StatusCode: ${response.error?.statusCode}',
+      name: 'LoginService.login',
+    );
+    log(
+      'ERROR-Description: ${response.error?.description}',
+      name: 'LoginService.login',
+    );
+
+    if (response.error?.statusCode == null && response.data?.data != null) {
+      return response.data!.data!;
+    } else {
+      throw Exception(response.error?.description ?? response.data?.message);
+    }
   }
 
   @override

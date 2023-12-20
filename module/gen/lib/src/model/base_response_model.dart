@@ -50,7 +50,7 @@ class BaseResponseModel<T extends INetworkModel<T>>
   @override
   BaseResponseModel<T> fromJson(Map<String, dynamic> json) {
     log('BaseResponseModel.fromJson: $json', name: 'BASE RESPONSE MODEL');
-    return BaseResponseModel(
+    return BaseResponseModel<T>(
       success: json['success'] as int?,
       message: json['message'] as String?,
       data: data?.fromJson(json['data'] as Map<String, dynamic>),

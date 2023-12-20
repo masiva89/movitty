@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/widgets.dart';
@@ -28,13 +29,13 @@ final class ProductNetworkErrorManager {
   void handleError(int value) {
     switch (value) {
       case HttpStatus.badRequest:
-        break;
+        log('badRequest', name: 'ProductNetworkErrorManager.handleError');
       case HttpStatus.unauthorized:
-        break;
+        log('unauthorized', name: 'ProductNetworkErrorManager.handleError');
       case HttpStatus.forbidden:
-        break;
+        log('forbidden', name: 'ProductNetworkErrorManager.handleError');
       case HttpStatus.notFound:
-        break;
+        log('notFound', name: 'ProductNetworkErrorManager.handleError');
       default:
     }
   }

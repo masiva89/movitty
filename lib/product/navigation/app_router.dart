@@ -22,7 +22,7 @@ final class AppRouter extends _$AppRouter {
   static const _replaceRouteName = 'View,Route';
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(
+        AdaptiveRoute(
           page: SplashRoute.page,
           initial: true,
           path: '/',
@@ -46,23 +46,21 @@ final class AppRouter extends _$AppRouter {
           page: DashboardRoute.page,
           path: '/dashboard',
           children: [
-            AutoRoute(
+            AdaptiveRoute(
               page: HomeNavigationRoute.page,
               path: 'home_navigation',
-              type: const RouteType.adaptive(),
               guards: [
                 AuthGuard(),
               ],
               children: [
-                AutoRoute(
+                AdaptiveRoute(
                   page: HomeRoute.page,
                   path: '',
                   initial: true,
                 ),
-                AutoRoute(
+                AdaptiveRoute(
                   page: HomeSecondRoute.page,
                   path: 'second',
-                  type: const RouteType.adaptive(),
                   guards: [
                     //AuthGuard(),
                     AuthRestrictedPageGuard(),
@@ -71,7 +69,7 @@ final class AppRouter extends _$AppRouter {
                 ),
               ],
             ),
-            AutoRoute(
+            AdaptiveRoute(
               page: HomeDetailRoute.page,
               path: 'detail',
               guards: [

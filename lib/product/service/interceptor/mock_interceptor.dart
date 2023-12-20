@@ -10,7 +10,7 @@ import 'package:vexana/vexana.dart';
 class MockInterceptor implements Interceptor {
   final _jsonDir = 'assets/mock/';
 
-  final _responseType = MockResponseType.failure;
+  final _responseType = MockResponseType.success;
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {

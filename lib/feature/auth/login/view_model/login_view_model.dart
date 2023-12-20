@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/auth/login/view/login_view.dart';
 import 'package:movitty/feature/auth/login/view_model/cubit/login_cubit.dart';
@@ -37,33 +36,22 @@ final class LoginViewModel extends LoginCubit {
   @override
   Future<bool> onPressedLogin() async {
     changeLoading();
+    ProductUser productUser;
     try {
-      final response = await _authenticationOperationService.login(
+      productUser = await _authenticationOperationService.login(
         username: usernameController.text,
         password: passwordController.text,
         firebaseToken: 'firebaseToken',
       );
-      log('response: ${response.toJson()}');
-    } on Exception catch (e) {
-      CustomLogger.showError(e);
+    } catch (e) {
+      CustomLogger.showError<Exception>(e);
+      changeLoading();
+      return false;
     }
-    /* await Future.delayed(const Duration(seconds: 2)).then((value) {
-      ProjectSnackbar(
-        title: 'title',
-        message: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet',
-        type: ProjectSnackbarType.success,
-      ).show();
-    });
-    final productUser = ProductUser(
-      userId: '1',
-      token: 'asdasd',
-      refreshToken: 'asdasd',
-    );
     final authCacheModel = AuthCacheModel(productUser: productUser);
-    _authCacheOperation.add(authCacheModel); */
+    _authCacheOperation.add(authCacheModel);
     changeLoading();
-    print('login');
-    return false;
+    return true;
   }
 
   /// Clear cache event to use in Login Feature
