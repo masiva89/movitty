@@ -2,16 +2,13 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vexana/vexana.dart';
 
-import '../network_base_mixin.dart';
-
 part 'product_user.g.dart';
 
 @JsonSerializable()
 
 /// [ProductUser] is a model for user.
 /// This model is used for auth.
-class ProductUser extends INetworkModel<ProductUser>
-    with EquatableMixin, NetworkBaseMixin<ProductUser> {
+class ProductUser extends INetworkModel<ProductUser> with EquatableMixin {
   /// constructor
   ProductUser({
     this.userId,

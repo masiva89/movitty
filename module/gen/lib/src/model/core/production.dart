@@ -3,13 +3,14 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vexana/vexana.dart';
 
 part 'production.g.dart';
 
 @JsonSerializable()
 @immutable
-final class Production with EquatableMixin {
-  const Production({
+final class Production extends INetworkModel<Production> with EquatableMixin {
+  Production({
     this.id,
     this.title,
     this.image,
@@ -21,6 +22,12 @@ final class Production with EquatableMixin {
   factory Production.fromJson(Map<String, dynamic> json) =>
       _$ProductionFromJson(json);
 
+  @override
+  Production fromJson(Map<String, dynamic> json) {
+    return _$ProductionFromJson(json);
+  }
+
+  @override
   Map<String, dynamic> toJson() => _$ProductionToJson(this);
 
   final int? id;

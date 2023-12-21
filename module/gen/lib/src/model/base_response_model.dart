@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:vexana/vexana.dart';
 
 /// Represents a base response model for network requests.
@@ -14,7 +12,7 @@ import 'package:vexana/vexana.dart';
 /// BaseResponseModel<ProductUser> response = BaseResponseModel<ProductUser>(
 ///   success: true,
 ///   message: 'Success',
-///   parseNetworkModel: ProductUser.empty(),
+///   data: ProductUser.empty(),
 /// );
 /// ```
 class BaseResponseModel<T extends INetworkModel<T>>
@@ -49,7 +47,6 @@ class BaseResponseModel<T extends INetworkModel<T>>
 
   @override
   BaseResponseModel<T> fromJson(Map<String, dynamic> json) {
-    log('BaseResponseModel.fromJson: $json', name: 'BASE RESPONSE MODEL');
     return BaseResponseModel<T>(
       success: json['success'] as int?,
       message: json['message'] as String?,
