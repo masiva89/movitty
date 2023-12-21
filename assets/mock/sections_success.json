@@ -1,0 +1,60 @@
+{
+    "success": 1,
+    "message": "Başarılı!",
+    "data": {
+        "sections": [
+            {
+                "title": "Sana göre filmler",
+                "production_type_id": 1,
+                "productions": [
+                    {
+                        "id": 154,
+                        "title": "Başlangıç",
+                        "image": "firebasestorage.com/production/movie/154/image.jpg"
+                    },
+                    {
+                        "id": 123,
+                        "title": "Yeşil Yol",
+                        "image": "firebasestorage.com/production/movie/123/image.jpg"
+                    },
+                    {
+                        "id": 543,
+                        "title": "Shawshank Redemption",
+                        "image": "firebasestorage.com/production/movie/543/image.jpg"
+                    },
+                    {
+                        "id": 654,
+                        "title": "Dövüş Kulübü",
+                        "image": "firebasestorage.com/production/movie/654/image.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "Sana göre diziler",
+                "production_type_id": 2,
+                "productions": [
+                    {
+                        "id": 154,
+                        "title": "Başlangıç",
+                        "image": "firebasestorage.com/production/movie/154/image.jpg"
+                    },
+                    {
+                        "id": 123,
+                        "title": "Yeşil Yol",
+                        "image": "firebasestorage.com/production/movie/123/image.jpg"
+                    },
+                    {
+                        "id": 543,
+                        "title": "Shawshank Redemption",
+                        "image": "firebasestorage.com/production/movie/543/image.jpg"
+                    },
+                    {
+                        "id": 654,
+                        "title": "Dövüş Kulübü",
+                        "image": "firebasestorage.com/production/movie/654/image.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}
