@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movitty/product/init/theme/custom_color_scheme.dart';
-import 'package:movitty/product/init/theme/custom_theme.dart';
+import 'package:gen/gen.dart';
+import 'package:movitty/product/init/index.dart';
 
 /// Custom light theme for project design
 final class CustomDarkTheme implements CustomTheme {
@@ -9,9 +9,29 @@ final class CustomDarkTheme implements CustomTheme {
         useMaterial3: true,
         colorScheme: CustomColorScheme.darkColorScheme,
         floatingActionButtonTheme: floatingActionButtonThemeData,
+        appBarTheme: CustomAppBarTheme.appBarTheme,
+        bottomSheetTheme: CustomBottomsheetTheme.bottomSheetThemeData,
+        splashColor: ColorName.primary2.withOpacity(0.2),
+        highlightColor: ColorName.primary2.withOpacity(0.2),
+        scaffoldBackgroundColor: ColorName.backgroundPrimary,
+        dialogTheme: dialogTheme,
       );
 
   @override
   final FloatingActionButtonThemeData floatingActionButtonThemeData =
       const FloatingActionButtonThemeData();
+
+  @override
+  final DialogTheme dialogTheme = DialogTheme(
+    titleTextStyle: TextStyle(
+      color: ColorName.primary3,
+      fontSize: 24,
+      fontWeight: const TextTheme().titleMedium?.fontWeight,
+    ),
+    contentTextStyle: TextStyle(
+      color: ColorName.primary4,
+      fontSize: 18,
+      fontWeight: const TextTheme().bodyMedium?.fontWeight,
+    ),
+  );
 }

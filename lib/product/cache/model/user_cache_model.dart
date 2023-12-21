@@ -2,9 +2,15 @@ import 'package:core/core.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
 
+/// [UserCacheModel] is a cache model for user.
 final class UserCacheModel with CacheModel {
+  /// constructor
   UserCacheModel({required this.user});
+
+  /// Empty constructor
   UserCacheModel.empty() : user = User();
+
+  /// [user] is a user model.
   final User user;
 
   @override
@@ -27,6 +33,7 @@ final class UserCacheModel with CacheModel {
     return user.toJson();
   }
 
+  /// [copyWith] is a method to copy with.
   UserCacheModel copyWith({
     User? user,
   }) {

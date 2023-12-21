@@ -1,9 +1,9 @@
 import 'package:core/core.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movitty/feature/home/view_model/state/home_state.dart';
-import 'package:movitty/product/cache/model/user_cache_model.dart';
-import 'package:movitty/product/service/interface/authenction_operation.dart';
+import 'package:movitty/feature/home/view_model/index.dart';
+import 'package:movitty/product/cache/index.dart';
+import 'package:movitty/product/service/index.dart';
 import 'package:movitty/product/state/base/base_cubit.dart';
 
 /// Manage your home view business logic
@@ -27,9 +27,9 @@ final class HomeViewModel extends BaseCubit<HomeState> {
   /// Get users
   Future<void> fetchUsers() async {
     CustomLogger.showError<User>(usersFromCache);
-    final response = await _authenticationOperationService.users();
+    /* final response = await _authenticationOperationService.users();
     _saveItems(response);
-    emit(state.copyWith(users: response));
+    emit(state.copyWith(users: response)); */
   }
 
   /// Save users to cache

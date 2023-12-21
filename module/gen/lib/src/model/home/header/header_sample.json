@@ -1,0 +1,23 @@
+{
+    "success": 1,
+    "message": "Başarılı!",
+    "data": {
+        "title": "Trendleri kaçırma",
+        "items": [
+            {
+                "movie_id": 238,
+                "image": "firebasestorage.com/production/movie/238/image.jpg",
+                "title": "Görevimiz Tehlike",
+                "overview": "Görevimiz Tehlike: Ölümcül Hesaplaşma Bölüm 1'de, Ethan Hunt (Tom Cruise) ve IMF ekibi şimdiye kadarki en tehlikeli görevlerine atılıyorlar. Görevleri; yanlış ellere geçmeden önce tüm insanlığı tehdit eden korkunç bir silahın izini sürmek. Geleceğin kontrolü ve dünyanın kaderi tehlikedeyken ve Ethan'ın geçmişinden gelen karanlık güçler yaklaşırken, dünya çapında ölümcül bir yarış başlıyor. Gizemli, her şeye gücü yeten bir düşmanla karşı karşıya kalan Ethan, hiçbir şeyin görevinden daha önemli olamayacağını düşünmek zorunda kalır. En çok değer verdiği kişilerin hayatları bile.",
+                "isLiked": false
+            },
+            {
+                "movie_id": 210,
+                "title": "Baba",
+                "image": "firebasestorage.com/production/movie/210/image.jpg",
+                "overview": "Görevimiz Tehlike: Ölümcül Hesaplaşma Bölüm 1'de, Ethan Hunt (Tom Cruise) ve IMF ekibi şimdiye kadarki en tehlikeli görevlerine atılıyorlar. Görevleri; yanlış ellere geçmeden önce tüm insanlığı tehdit eden korkunç bir silahın izini sürmek. Geleceğin kontrolü ve dünyanın kaderi tehlikedeyken ve Ethan'ın geçmişinden gelen karanlık güçler yaklaşırken, dünya çapında ölümcül bir yarış başlıyor. Gizemli, her şeye gücü yeten bir düşmanla karşı karşıya kalan Ethan, hiçbir şeyin görevinden daha önemli olamayacağını düşünmek zorunda kalır. En çok değer verdiği kişilerin hayatları bile.",
+                "isLiked": true
+            }
+        ]
+    }
+}

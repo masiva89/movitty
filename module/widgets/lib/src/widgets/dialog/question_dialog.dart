@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/src/core/dialog_base.dart';
 
-/// User question answer
+/// A dialog widget that displays a question and allows the user to provide
+/// an answer.
 final class QuestionAnswer {
+  /// The [QuestionAnswer] widget is typically used within a dialog
+  /// to prompt the user for a response.
+  /// It takes a required parameter [response] which represents the
+  /// user's answer to the question.
   QuestionAnswer({required this.response});
+
+  /// Creates an empty question and answer dialog.
+  ///
+  /// The [response] is initialized as an empty string.
+  QuestionAnswer.empty() : response = '';
 
   /// Answer text
   final String response;
@@ -17,8 +27,8 @@ final class QuestionDialog extends StatefulWidget {
   /// Title for the dialog
   final String title;
 
-  /// Show the dialog for success
-  /// This will always return [true]
+  /// Show the dialog for success.
+  /// This will always returns true.
   static Future<QuestionAnswer?> show({
     required String title,
     required BuildContext context,

@@ -3,8 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movitty/product/state/container/index.dart';
 import 'package:movitty/product/state/view_model/product_view_model.dart';
 
+/// Initializer wrapper widget for the application state.
 final class StateInitialize extends StatelessWidget {
+  /// Initializer wrapper widget for the application state.
   const StateInitialize({required this.child, super.key});
+
+  /// Wrapped widget.
   final Widget child;
   @override
   Widget build(BuildContext context) {

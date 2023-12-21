@@ -4,10 +4,12 @@
 enum ProductServicePath {
   userV1('user'),
   posts('posts'),
-  usersV2('v2/users');
+  usersV2('v2/users'),
+  signUp('signup'),
+  login('login');
 
-  final String value;
   const ProductServicePath(this.value);
+  final String value;
 
   /// [withQuery] is add query to path
   ///
@@ -15,4 +17,6 @@ enum ProductServicePath {
   String withQuery(String value) {
     return '${this.value}/$value';
   }
+
+  String get rawValue => value;
 }
