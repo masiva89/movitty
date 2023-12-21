@@ -29,7 +29,7 @@ class AuthRestrictedPageGuard extends AutoRouteGuard with GuardMixin {
           checkButtonText: 'Giriş Yap',
         );
         if (result) {
-          await router.pop([const AuthNavRoute()]);
+          await router.replaceAll([const AuthNavRoute()]);
         }
     }
   }
