@@ -1,4 +1,4 @@
 {
-    "success": 0,
-    "message": "Bu kullanıcı adı zaten alınmış."
+    "success": 1,
+    "message": "Hesabınız başarıyla oluşturulmuştur. Lütfen giriş yapın!"
 }

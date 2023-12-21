@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
@@ -6,6 +7,7 @@ import 'package:movitty/feature/auth/login/view/login_view.dart';
 import 'package:movitty/feature/auth/login/view_model/cubit/login_cubit.dart';
 import 'package:movitty/feature/auth/login/view_model/state/login_state.dart';
 import 'package:movitty/product/cache/model/auth_cache_model.dart';
+import 'package:movitty/product/navigation/app_router.dart';
 import 'package:movitty/product/service/interface/authentication_operation.dart';
 
 /// Manage your login view business logic
@@ -49,7 +51,9 @@ final class LoginViewModel extends LoginCubit {
       return false;
     }
     final authCacheModel = AuthCacheModel(productUser: productUser);
-    _authCacheOperation.add(authCacheModel);
+    _authCacheOperation
+      ..clear()
+      ..add(authCacheModel);
     changeLoading();
     return true;
   }
@@ -57,5 +61,14 @@ final class LoginViewModel extends LoginCubit {
   /// Clear cache event to use in Login Feature
   void clearCache() {
     _authCacheOperation.clear();
+  }
+
+  @override
+  Future<void> onPressedGoWithoutLogin(BuildContext context) async {
+    final authCacheModel = AuthCacheModel(productUser: ProductUser());
+    _authCacheOperation
+      ..clear()
+      ..add(authCacheModel);
+    await context.router.replace(const DashboardRoute());
   }
 }

@@ -35,6 +35,7 @@ final class SignupViewModel extends SignupCubit {
 
   @override
   Future<bool> onPressedSignup() async {
+    changeLoading();
     try {
       await _authenticationOperationService.signUp(
         username: 'username',
@@ -43,9 +44,13 @@ final class SignupViewModel extends SignupCubit {
         passwordConfirmation: 'passwordConfirmation',
         agreement: 1,
       );
-    } on Exception catch (e) {
+    } catch (e) {
       CustomLogger.showError<Exception>(e);
+      changeLoading();
+      return false;
     }
+    changeLoading();
+    return true;
     /* if (!_formValidator.validate()) {
       /* ProjectSnackbar(
         message: 'Lütfen kayıt formunu doğru ve eksiksiz doldurunuz.',
@@ -65,6 +70,5 @@ final class SignupViewModel extends SignupCubit {
     });
     changeLoading();
     print('signup'); */
-    return true;
   }
 }

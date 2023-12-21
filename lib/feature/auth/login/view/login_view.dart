@@ -11,9 +11,7 @@ import 'package:movitty/product/state/base/base_state.dart';
 import 'package:movitty/product/utility/constants/decoration/project_spacer.dart';
 import 'package:movitty/product/utility/constants/decoration/text_styles.dart';
 import 'package:movitty/product/widget/appbar/auth_app_bar.dart';
-import 'package:movitty/product/widget/button/custom_login/custom_login_button.dart';
-import 'package:movitty/product/widget/button/custom_text_button.dart';
-import 'package:movitty/product/widget/button/normal_button.dart';
+import 'package:movitty/product/widget/button/index.dart';
 import 'package:movitty/product/widget/padding/project_padding.dart';
 import 'package:movitty/product/widget/textfield/project_text_field.dart';
 
@@ -86,6 +84,28 @@ class _LoginViewState extends BaseState<LoginView> with LoginViewMixin {
                       isActive: state.isLoading == false,
                       isPrimary: false,
                       title: 'Hesabın yok mu? Kayıt Ol',
+                    ),
+                    ProjectSpacer.xLargeHeight(context),
+                    ProjectSpacer.xLargeHeight(context),
+                    Center(
+                      child: BoldTextButton(
+                        onPressed: () async {
+                          await loginViewModel.onPressedGoWithoutLogin(context);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Üye olmadan devam et',
+                              style: TextStyles.textButton(context),
+                            ),
+                            ProjectSpacer.smallWidth(context),
+                            const Icon(
+                              Icons.arrow_circle_right,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),

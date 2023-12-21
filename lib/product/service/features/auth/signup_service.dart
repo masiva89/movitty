@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
+import 'dart:developer';
+
 import 'package:gen/gen.dart';
 import 'package:movitty/product/service/interface/authentication_operation.dart';
 import 'package:movitty/product/service/manager/product_service_path.dart';
@@ -45,7 +47,35 @@ final class SignupService extends AuthenticationOperation {
       },
     );
     warningManager.handleResponse(response.data, type: NetworkHandleType.both);
-    return response.data ?? BaseResponseModel<EmptyModel>.empty();
+    log(
+      'SUCCESS: ${response.data?.success}',
+      name: 'SignupService.signup',
+    );
+    log(
+      'MESSAGE: ${response.data?.message}',
+      name: 'SignupService.signup',
+    );
+    log(
+      'DATA-Object: ${response.data}',
+      name: 'SignupService.signup',
+    );
+    log(
+      'DATA-Object2: ${response.data?.data}',
+      name: 'SignupService.signup',
+    );
+    log(
+      'ERROR-StatusCode: ${response.error?.statusCode}',
+      name: 'SignupService.signup',
+    );
+    log(
+      'ERROR-Description: ${response.error?.description}',
+      name: 'SignupService.signup',
+    );
+    if (response.error?.statusCode == null && response.data?.success == 1) {
+      return response.data!;
+    } else {
+      throw Exception(response.error?.description ?? response.data?.message);
+    }
   }
 
   @override

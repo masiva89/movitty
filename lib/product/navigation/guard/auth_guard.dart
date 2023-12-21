@@ -24,7 +24,7 @@ class AuthGuard extends AutoRouteGuard with GuardMixin {
 
   /* UserStatus get userAuthStatus {
     final authCacheModel =
-        _productCache.authCacheModel.get(CachePath.auth.value);
+        
     if (authCacheModel == null) return UserStatus.notLoggedIn;
 
     return authCacheModel.userStatus;

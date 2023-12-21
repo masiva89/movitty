@@ -17,10 +17,10 @@ class AuthRestrictedPageGuard extends AutoRouteGuard with GuardMixin {
   ) async {
     log('--- AuthRestrictedPageGuard ---');
     switch (userAuthStatus) {
-      case UserStatus.notLoggedIn || UserStatus.notVerified:
+      case UserStatus.loggedIn:
         log('User is logged in');
         resolver.next();
-      case UserStatus.loggedIn:
+      case UserStatus.notLoggedIn || UserStatus.notVerified:
         log('User is not logged in');
         final result = await ProjectDialog.showOptionDialog(
           context: router.navigatorKey.currentState!.context,
