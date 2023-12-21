@@ -1,0 +1,7 @@
+{
+    "success": 1,
+    "message": "Versiyon alındı.",
+    "data": {
+        "version": "1.0.0"
+    }
+}

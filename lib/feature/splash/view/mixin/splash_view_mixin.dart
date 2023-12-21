@@ -1,5 +1,6 @@
 import 'package:movitty/feature/splash/view/splash_view.dart';
 import 'package:movitty/feature/splash/view_model/splash_view_model.dart';
+import 'package:movitty/product/service/features/splash/splash_service.dart';
 import 'package:movitty/product/service/index.dart';
 import 'package:movitty/product/state/index.dart';
 
@@ -23,7 +24,11 @@ mixin SplashViewMixin on BaseState<SplashView> {
       onErrorStatus: _productNetworkErrorManager.handleError,
     );
 
-    _splashViewModel = SplashViewModel();
-    _splashViewModel.testInit(context);
+    _splashViewModel = SplashViewModel(
+      splashOperation: SplashService(
+        ProductStateItems.productNetworkManager,
+      ),
+    );
+    _splashViewModel.init(context);
   }
 }

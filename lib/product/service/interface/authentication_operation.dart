@@ -17,7 +17,7 @@ abstract class AuthenticationOperation extends OperationBase {
 
   /// Signs up a new user with the provided credentials and agreement.
   ///
-  /// Returns a [Map] containing the response from the server.
+  /// Returns a [BaseResponseModel] object representing the response.
   Future<BaseResponseModel> signUp({
     required String username,
     required String password,

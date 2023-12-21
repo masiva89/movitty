@@ -25,6 +25,9 @@ enum NetworkHandleType {
 
   /// Indicates that both error and success responses should be handled.
   both,
+
+  /// Indicates that no responses should be handled.
+  none,
 }
 
 /// A manager class for handling warnings in the product service.
@@ -75,7 +78,7 @@ class ProductServiceWarningManager {
     final hasError = responseModel.success != 1;
     final message = responseModel.message ??
         (hasError ? nullErrorMessage : nullSuccessMessage);
-    late ProjectSnackbar snackbar;
+    ProjectSnackbar? snackbar;
     switch (type) {
       case NetworkHandleType.onlyError:
         if (hasError) {
@@ -101,7 +104,9 @@ class ProductServiceWarningManager {
               : ProjectSnackbarType.success,
           duration: const Duration(seconds: 5),
         );
+      case NetworkHandleType.none:
+        break;
     }
-    snackbar.show();
+    if (snackbar != null) snackbar.show();
   }
 }

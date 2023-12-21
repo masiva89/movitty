@@ -6,7 +6,8 @@ enum ProductServicePath {
   posts('posts'),
   usersV2('v2/users'),
   signUp('signup'),
-  login('login');
+  login('login'),
+  version('version');
 
   const ProductServicePath(this.value);
   final String value;
