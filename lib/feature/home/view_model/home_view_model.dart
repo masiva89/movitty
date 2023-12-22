@@ -1,45 +1,45 @@
-import 'package:core/core.dart';
-import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movitty/feature/home/view_model/cubit/home_cubit.dart';
 import 'package:movitty/feature/home/view_model/index.dart';
-import 'package:movitty/product/cache/index.dart';
 import 'package:movitty/product/service/index.dart';
-import 'package:movitty/product/state/base/base_cubit.dart';
+import 'package:movitty/product/service/interface/home_operation.dart';
 
 /// Manage your home view business logic
-final class HomeViewModel extends BaseCubit<HomeState> {
+class HomeViewModel extends HomeCubit with HomeViewModelMixin {
   /// [AuthenticationOperation] service
-  HomeViewModel({
-    required AuthenticationOperation operationService,
-    required HiveCacheOperation<UserCacheModel> userCacheOperation,
-  })  : _authenticationOperationService = operationService,
-        _userCacheOperation = userCacheOperation,
+  HomeViewModel({required HomeOperation homeOperation})
+      : _homeOperation = homeOperation,
         super(const HomeState(isLoading: false));
 
-  final AuthenticationOperation _authenticationOperationService;
-  final HiveCacheOperation<UserCacheModel> _userCacheOperation;
+  final HomeOperation _homeOperation;
 
-  /// Change loading state
-  void changeLoading() {
-    emit(state.copyWith(isLoading: !state.isLoading));
+  @override
+  Future<void> fetchHomeData() async {
+    changeLoading();
+    try {
+      await Future.wait([
+        _homeHeader(),
+        _homeSections(),
+      ]);
+    } on Exception catch (e) {
+      CustomLogger.showError<Exception>(e);
+    }
+    changeLoading();
   }
 
-  /// Get users
-  Future<void> fetchUsers() async {
-    CustomLogger.showError<User>(usersFromCache);
-    /* final response = await _authenticationOperationService.users();
-    _saveItems(response);
-    emit(state.copyWith(users: response)); */
-  }
-
-  /// Save users to cache
-  void _saveItems(List<User> user) {
-    for (final element in user) {
-      _userCacheOperation.add(UserCacheModel(user: element));
+  Future<void> _homeHeader() async {
+    try {
+      emit(state.copyWith(header: await _homeOperation.homeHeader()));
+    } on Exception {
+      rethrow;
     }
   }
 
-  /// Get users from cache
-  List<User> get usersFromCache =>
-      _userCacheOperation.getAll().map((e) => e.user).toList();
+  Future<void> _homeSections() async {
+    try {
+      emit(state.copyWith(sections: await _homeOperation.homeSections()));
+    } on Exception {
+      rethrow;
+    }
+  }
 }

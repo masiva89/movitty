@@ -33,7 +33,8 @@ class MockInterceptor implements Interceptor {
     log('MockInterceptor.onRequest [HEADERS]: ${options.headers}');
     log('MockInterceptor.onRequest [PATH]: ${options.path}');
     log('--------------------------------------------');
-    final resourcePath = _jsonDir + options.path;
+    final urlPath = options.path.replaceAll('/', '_');
+    final resourcePath = _jsonDir + urlPath;
     final mockResponse = await MockResponseLoader.loadResponse(
       path: resourcePath,
       responseType: _responseType,

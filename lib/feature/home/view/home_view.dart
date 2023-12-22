@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
 import 'package:movitty/feature/home/view/mixin/home_view_mixin.dart';
-import 'package:movitty/feature/home/view/widget/home_user_list.dart';
-import 'package:movitty/feature/home/view_model/index.dart';
 import 'package:movitty/product/state/base/base_state.dart';
 import 'package:movitty/product/utility/constants/index.dart';
 import 'package:movitty/product/utility/validator/password_validator.dart';
@@ -44,35 +42,6 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            /* NormalButton(
-                title: 'asdas',
-                onPressed: () {},
-              ),
-              const SizedBox(height: 20),
-              NormalButton(
-                title: 'asdas',
-                isPrimary: false,
-                onPressed: () {},
-              ),
-              const SizedBox(height: 20),
-              MiniButton(
-                title: 'asdas',
-                onPressed: () {},
-              ),
-              ProjectSpacer.xLargeHeight(context),
-              const DialogNormalButton(
-                onComplete: print,
-              ),
-              /* Expanded(
-                child: _UserBlocList(),
-              ), */
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: NavigateBackButton(
-                  title: 'Geri',
-                  onPressed: () {},
-                ),
-              ), */
             ProjectSpacer.xLargeHeight(context),
             Align(
               alignment: Alignment.bottomLeft,
@@ -191,7 +160,7 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
   }
 }
 
-final class _UserBlocList extends StatelessWidget {
+/* final class _UserBlocList extends StatelessWidget {
   const _UserBlocList();
 
   @override
@@ -210,4 +179,4 @@ final class _UserBlocList extends StatelessWidget {
       ),
     );
   }
-}
+} */
