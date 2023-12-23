@@ -5,7 +5,7 @@ import 'package:gen/gen.dart';
 ///
 /// This class contains information about whether the screen is currently loading,
 /// the header of the screen, and the sections displayed on the screen.
-class HomeState extends Equatable {
+final class HomeState extends Equatable {
   /// Creates a new [HomeState] instance.
   ///
   /// The [isLoading] parameter is required, while the [header] and [sections]
