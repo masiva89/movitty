@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/dashboard/view/dashboard_view.dart';
-import 'package:movitty/feature/home/view/widget/home_app_bar.dart';
+import 'package:movitty/feature/home/view/widget/general/home_app_bar.dart';
 import 'package:movitty/product/navigation/inner_paths.dart';
 import 'package:movitty/product/widget/appbar/appbar_switcher.dart';
 import 'package:movitty/product/widget/button/index.dart';

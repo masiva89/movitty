@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/home/view/mixin/home_view_mixin.dart';
-import 'package:movitty/feature/home/view/widget/home_headers.dart';
+import 'package:movitty/feature/home/view/widget/home_header/home_headers.dart';
 import 'package:movitty/feature/home/view_model/index.dart';
 import 'package:movitty/product/state/base/base_state.dart';
 import 'package:movitty/product/utility/constants/decoration/index.dart';

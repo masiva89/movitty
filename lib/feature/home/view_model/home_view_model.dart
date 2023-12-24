@@ -18,6 +18,7 @@ class HomeViewModel extends HomeCubit with HomeViewModelMixin {
   @override
   Future<void> fetchHomeData() async {
     try {
+      await Future.delayed(const Duration(seconds: 2));
       final multiple2TaskResult =
           await Multiple2TaskProcessor.run<Header, HomeSections>(
         firstTask: _homeHeader,
