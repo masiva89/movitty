@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movitty/feature/home/view/widget/home_header/home_header_action_button.dart';
 import 'package:movitty/product/utility/constants/index.dart';
+import 'package:movitty/product/utility/guard/auth_op_guard.dart';
 import 'package:movitty/product/widget/padding/project_padding.dart';
 
 /// A widget that represents the headers for the home screen.
@@ -91,34 +93,28 @@ class HomeHeaderCard extends StatelessWidget {
                       height: context.general.mediaSize.height * 0.055,
                       child: Row(
                         children: [
-                          Container(
-                            height: 30,
-                            width: 50,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              color: ColorName.backgroundPrimary,
-                              borderRadius: ProjectRadius.small.radius(context),
-                            ),
-                            child: Center(
-                              child: Assets.icons.heartPlus.svg(
-                                package: 'gen',
-                              ),
-                            ),
+                          HomeHeaderActionButton(
+                            onPressed: () {
+                              AuthOpGuard.instance.callGuarded(
+                                context,
+                                () async => Future.microtask(
+                                  () => print('Add to watchlist'),
+                                ),
+                              );
+                            },
+                            icon: Assets.icons.heartPlus,
                           ),
                           ProjectSpacer.largeWidth(context),
-                          Container(
-                            height: 30,
-                            width: 50,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              color: ColorName.backgroundPrimary,
-                              borderRadius: ProjectRadius.small.radius(context),
-                            ),
-                            child: Center(
-                              child: Assets.icons.addCircle.svg(
-                                package: 'gen',
-                              ),
-                            ),
+                          HomeHeaderActionButton(
+                            onPressed: () async {
+                              await AuthOpGuard.instance.callGuarded(
+                                context,
+                                await Future.delayed(
+                                  const Duration(seconds: 1),
+                                ),
+                              );
+                            },
+                            icon: Assets.icons.addCircle,
                           ),
                         ],
                       ),

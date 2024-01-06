@@ -2,12 +2,14 @@ import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/home/view_model/cubit/home_cubit.dart';
 import 'package:movitty/feature/home/view_model/index.dart';
+import 'package:movitty/product/cache/mixin/auth_cache_mixin.dart';
 import 'package:movitty/product/service/index.dart';
 import 'package:movitty/product/service/interface/home_operation.dart';
 import 'package:movitty/product/utility/process/multiple_task_processor.dart';
 
 /// Manage your home view business logic
-class HomeViewModel extends HomeCubit with HomeViewModelMixin {
+class HomeViewModel extends HomeCubit
+    with AuthCacheCubitMixin, HomeViewModelMixin {
   /// [AuthenticationOperation] service
   HomeViewModel({required HomeOperation homeOperation})
       : _homeOperation = homeOperation,
@@ -18,7 +20,7 @@ class HomeViewModel extends HomeCubit with HomeViewModelMixin {
   @override
   Future<void> fetchHomeData() async {
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      //await Future.delayed(const Duration(seconds: 2));
       final multiple2TaskResult =
           await Multiple2TaskProcessor.run<Header, HomeSections>(
         firstTask: _homeHeader,
@@ -39,14 +41,3 @@ class HomeViewModel extends HomeCubit with HomeViewModelMixin {
 
   Future<HomeSections> _homeSections() async => _homeOperation.homeSections();
 }
-
-  /* Future<HomeSections> _homeSections() async {
-    print('service method - _homeSections-------------------');
-    try {
-      emit(state.copyWith(sections: await _homeOperation.homeSections()));
-    } on Exception {
-      rethrow;
-    }
-    print('service method - _homeSections---------------');
-  } */
-

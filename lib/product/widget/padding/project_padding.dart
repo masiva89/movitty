@@ -44,4 +44,24 @@ final class ProjectPadding extends EdgeInsets {
   /// [ProjectPadding.horizontalXLarge] is 16
   ProjectPadding.horizontalXLarge(BuildContext context)
       : super.symmetric(horizontal: 16.responsivePadding(context));
+
+  /// [ProjectPadding.verticalXSmall] is 4
+  ProjectPadding.verticalXSmall(BuildContext context)
+      : super.symmetric(vertical: 4.responsivePadding(context));
+
+  /// [ProjectPadding.verticalSmall] is 6
+  ProjectPadding.verticalSmall(BuildContext context)
+      : super.symmetric(vertical: 6.responsivePadding(context));
+
+  /// [ProjectPadding.verticalMedium] is 8
+  ProjectPadding.verticalMedium(BuildContext context)
+      : super.symmetric(vertical: 8.responsivePadding(context));
+
+  /// [ProjectPadding.verticalLarge] is 12
+  ProjectPadding.verticalLarge(BuildContext context)
+      : super.symmetric(vertical: 12.responsivePadding(context));
+
+  /// [ProjectPadding.verticalXLarge] is 16
+  ProjectPadding.verticalXLarge(BuildContext context)
+      : super.symmetric(vertical: 16.responsivePadding(context));
 }

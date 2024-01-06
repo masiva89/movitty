@@ -21,9 +21,8 @@ mixin SplashViewModelMixin on BaseCubit<SplashState> {
     log('[userAuthStatus]');
     final authCacheModel =
         _productCache.authCacheOperation.get(CachePath.auth.value);
-    if (authCacheModel == null) return UserStatus.notLoggedIn;
-    log('[userAuthStatus] ${authCacheModel.userStatus}');
-    return authCacheModel.userStatus;
+    //log('[userAuthStatus] ${authCacheModel.userStatus}');
+    return authCacheModel?.userStatus ?? UserStatus.notLoggedIn;
   }
 
   /// [navigateToApp] is a method to navigate to app.
