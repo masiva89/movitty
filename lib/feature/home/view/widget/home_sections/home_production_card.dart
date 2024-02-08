@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:gen/gen.dart';
 import 'package:movitty/product/utility/constants/index.dart';
+import 'package:movitty/product/widget/bottomsheet/production_actions_bottomsheet.dart';
+import 'package:widgets/widgets.dart';
 
 /// A card widget that displays information about a production in the home
 /// section.
@@ -36,8 +38,20 @@ class HomeProductionCard extends StatelessWidget {
         //TODO: Navigate to production details page.
       },
       child: GestureDetector(
-        onLongPress: () {
-          //TODO: Show production actions bottomsheet.
+        onLongPress: () async {
+          final opsBottomsheet = TestProductionActionsBottomsheet(
+            title: 'title',
+            actions: [
+              ProductionAction(
+                onAction: () {},
+                title: 'title',
+                icon: Assets.icons.addCircle.svg(package: 'gen'),
+              ),
+            ],
+            titleStyle: TextStyles.header3(context),
+            bodyStyle: TextStyles.body(context),
+          );
+          await opsBottomsheet.show(context: context);
         },
         child: Container(
           margin: margin,
