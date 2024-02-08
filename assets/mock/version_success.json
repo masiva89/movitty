@@ -2,6 +2,7 @@
     "success": 1,
     "message": "Versiyon alındı.",
     "data": {
-        "version": "1.0.0"
+        "minVersion": "1.0.0",
+        "maxVersion": "1.0.0"
     }
 }

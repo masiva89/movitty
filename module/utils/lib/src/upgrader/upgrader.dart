@@ -22,16 +22,21 @@ class Upgrader {
     required String maxVersion,
     required String currentVersion,
   }) {
-    if (currentVersion.isLowerThan(minVersion)) {
-      return UpgradeRequirementType.mustUpgrade;
-    } else if (currentVersion.isGreaterThan(maxVersion)) {
-      return UpgradeRequirementType.mustUpgrade;
-    } else if (currentVersion.isEqualTo(minVersion)) {
-      return UpgradeRequirementType.mustUpgrade;
-    } else if (currentVersion.isEqualTo(maxVersion)) {
+    bool isLowerThanMax = currentVersion.isLowerThan(maxVersion);
+    bool isLowerThanMin = currentVersion.isLowerThan(minVersion);
+    bool isGreaterThanMin = currentVersion.isGreaterThan(minVersion);
+    bool isEqualToMin = currentVersion.isEqualTo(minVersion);
+    bool isEqualToMax = currentVersion.isEqualTo(maxVersion);
+    bool isBetweenMinMax = isLowerThanMax && isGreaterThanMin;
+
+    if (isEqualToMax) {
       return UpgradeRequirementType.none;
-    } else {
+    } else if (isBetweenMinMax || isEqualToMin) {
       return UpgradeRequirementType.canUpgrade;
+    } else if (isLowerThanMin) {
+      return UpgradeRequirementType.mustUpgrade;
+    } else {
+      return UpgradeRequirementType.none;
     }
   }
 }

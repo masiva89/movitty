@@ -46,8 +46,8 @@ void main() {
       Upgrader upgrader = Upgrader();
 
       String minVersion = '1.0.0';
-      String maxVersion = '2.0.0';
-      String currentVersion = '1.5.0';
+      String maxVersion = '1.2.0';
+      String currentVersion = '1.0.0';
 
       expect(
         upgrader.checkUpgradeRequirement(
@@ -80,8 +80,8 @@ void main() {
       Upgrader upgrader = Upgrader();
 
       String minVersion = '1.0.0';
-      String maxVersion = '2.0.0';
-      String currentVersion = '2.0.0';
+      String maxVersion = '1.0.0';
+      String currentVersion = '1.0.0';
 
       expect(
         upgrader.checkUpgradeRequirement(

@@ -1,12 +1,14 @@
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/material.dart';
 import 'package:movitty/feature/splash/view_model/state/splash_state.dart';
 import 'package:movitty/product/cache/index.dart';
 import 'package:movitty/product/navigation/app_router.dart';
 import 'package:movitty/product/navigation/guard/enum/user_status.dart';
 import 'package:movitty/product/state/index.dart';
+import 'package:movitty/product/widget/dialog/project_dialog.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 /// A mixin that provides common functionality for the SplashViewModel.
@@ -61,6 +63,28 @@ mixin SplashViewModelMixin on BaseCubit<SplashState> {
     }
     log('[isValidVersion] TRUE');
     return true;
+  }
+
+  Future<void> showUpgradeDialog({
+    required BuildContext context,
+    required bool isForceUpgrade,
+  }) async {
+    final title = isForceUpgrade ? 'Güncelleme Gerekli' : 'Yeni Sürüm Mevcut!';
+    final message = isForceUpgrade
+        ? 'Sizlere daha iyi hizmet verebilmek için uygulamamızı güncelledik.\n\nMovitty deneyimini yaşamaya devam etmek için lütfen uygulamayı güncelleyin.'
+        : 'Sizlere daha iyi hizmet verebilmek için uygulamamızı güncelledik.\n\nGüncellemek ister misiniz?';
+    final result = await ProjectDialog.showOptionDialog(
+      context: context,
+      title: title,
+      content: message,
+      checkButtonText: 'Güncelle',
+      closeButtonText: isForceUpgrade ? 'Uygulamadan Çık' : 'Sonra',
+    );
+    if (result == true) {
+      EasyLogger().info('Uygulama güncellenecek. Markete yönlendiriliyor...');
+    } else {
+      EasyLogger().info('Uygulama güncellenmedi. Uygulamadan çıkılıyor...');
+    }
   }
 
   /// Changes the loading state of the splash screen.

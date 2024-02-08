@@ -16,7 +16,7 @@ class AppVersion extends INetworkModel<AppVersion> with EquatableMixin {
   /// Creates a new instance of [AppVersion].
   ///
   /// The [version] parameter represents the version number of the application.
-  AppVersion({this.version});
+  AppVersion({this.minVersion, this.maxVersion});
 
   /// Creates a new instance of [AppVersion] from a JSON map.
   factory AppVersion.fromJson(Map<String, dynamic> json) =>
@@ -26,7 +26,8 @@ class AppVersion extends INetworkModel<AppVersion> with EquatableMixin {
   AppVersion.empty();
 
   /// The version number of the application.
-  String? version;
+  String? minVersion;
+  String? maxVersion;
 
   @override
   AppVersion fromJson(Map<String, dynamic> json) {
@@ -34,7 +35,7 @@ class AppVersion extends INetworkModel<AppVersion> with EquatableMixin {
   }
 
   @override
-  List<Object?> get props => [version];
+  List<Object?> get props => [minVersion, maxVersion];
 
   @override
   Map<String, dynamic>? toJson() {

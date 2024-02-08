@@ -1,12 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:gen/gen.dart';
-import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/splash/view_model/cubit/splash_cubit.dart';
 import 'package:movitty/feature/splash/view_model/mixin/splash_view_model_mixin.dart';
 import 'package:movitty/feature/splash/view_model/state/splash_state.dart';
 import 'package:movitty/product/service/interface/splash_operation.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:utils/utils.dart';
 
 /// The view model for the splash screen.
 /// Handles the loading state and initialization logic.
@@ -28,13 +28,7 @@ class SplashViewModel extends SplashCubit with SplashViewModelMixin {
     log('[SplashViewModel] ------------------ START');
     log('[SplashViewModel] init');
 
-    final isValidVersion = await checkVersion();
-    if (isValidVersion == false) return;
-    try {
-      navigateToApp(context: context, userStatus: userAuthStatus);
-    } catch (e) {
-      log('[testInit] error: $e');
-    }
+    await checkVersion(context);
 
     log('[SplashViewModel] ------------------ END');
   }
@@ -44,14 +38,23 @@ class SplashViewModel extends SplashCubit with SplashViewModelMixin {
   /// the version is valid or not.
   /// If an exception occurs during the version check, it logs the error and
   /// returns false.
-  Future<bool> checkVersion() async {
-    AppVersion response;
-    try {
-      response = await _splashOperation.getVersion();
-    } on Exception catch (e) {
-      CustomLogger.showError<Exception>(e);
-      return false;
+  Future<void> checkVersion(BuildContext context) async {
+    final appVersion = await _splashOperation.getVersion();
+
+    final packageInfo = await PackageInfo.fromPlatform();
+    final upgradeRequirementType = Upgrader().checkUpgradeRequirement(
+      minVersion: appVersion.minVersion ?? '0.0.0',
+      maxVersion: appVersion.maxVersion ?? '0.0.0',
+      currentVersion: packageInfo.version,
+    );
+
+    switch (upgradeRequirementType) {
+      case UpgradeRequirementType.none:
+        navigateToApp(context: context, userStatus: userAuthStatus);
+      case UpgradeRequirementType.canUpgrade:
+        await showUpgradeDialog(context: context, isForceUpgrade: false);
+      case UpgradeRequirementType.mustUpgrade:
+        await showUpgradeDialog(context: context, isForceUpgrade: true);
     }
-    return isValidVersion(response.version ?? '0.0.0');
   }
 }

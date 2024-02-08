@@ -54,6 +54,8 @@ dependencies:
     path: module/common
   core:
     path: module/core
+  utils:
+    path: module/utils
 
 dev_dependencies:
   flutter_test:
