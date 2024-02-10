@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/home/view/mixin/home_view_mixin.dart';
-import 'package:movitty/feature/home/view/widget/home_header/home_headers.dart';
+import 'package:movitty/feature/home/view/widget/home_header/home_headers2.dart';
 import 'package:movitty/feature/home/view/widget/home_sections/home_sections.dart';
 import 'package:movitty/feature/home/view_model/index.dart';
 import 'package:movitty/product/state/base/base_state.dart';
@@ -32,7 +32,7 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
             child: ListView(
               primary: true,
               children: [
-                const HomeHeaders(),
+                const HomeHeaders2(),
                 ProjectSpacer.largeHeight(context),
                 HomeSections(homeViewModel: homeViewModel),
               ],

@@ -1,4 +1,8 @@
+import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
+import 'package:movitty/product/utility/constants/decoration/index.dart';
+import 'package:movitty/product/widget/padding/project_padding.dart';
 import 'package:widgets/src/core/bottomsheet_base.dart';
 import 'package:widgets/src/core/production_action.dart';
 
@@ -9,12 +13,16 @@ class TestProductionActionsBottomsheet extends StatelessWidget {
     required this.titleStyle,
     required this.actions,
     required this.bodyStyle,
-    super.key,
+    this.production,
     this.onCancel,
+    super.key,
   });
 
   /// Title for the bottomsheet
   final String title;
+
+  /// Production of the bottomsheet
+  final Production? production;
 
   /// Title style for the bottomsheet
   final TextStyle titleStyle;
@@ -42,6 +50,7 @@ class TestProductionActionsBottomsheet extends StatelessWidget {
           onCancel: onCancel,
           titleStyle: titleStyle,
           bodyStyle: bodyStyle,
+          production: production,
         ),
       );
     } else {
@@ -53,6 +62,7 @@ class TestProductionActionsBottomsheet extends StatelessWidget {
           onCancel: onCancel,
           titleStyle: titleStyle,
           bodyStyle: bodyStyle,
+          production: production,
         ),
       );
     }
@@ -67,36 +77,48 @@ class TestProductionActionsBottomsheet extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: titleStyle.fontSize ?? 0),
-            child: Flex(
-              direction: Axis.horizontal,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            padding: ProjectPadding.horizontalMedium(context),
+            child: Row(
               children: [
-                Flexible(
-                  fit: FlexFit.tight,
-                  flex: 10,
-                  child: Text(title, style: titleStyle),
-                ),
-                Flexible(
-                  fit: FlexFit.tight,
-                  flex: 2,
-                  child: IconButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      onCancel?.call();
-                    },
-                    icon: Icon(
-                      Icons.cancel_rounded,
-                      size: titleStyle.fontSize! * 1.5,
-                      color: titleStyle.color,
+                Container(
+                  width: 60.responsive(context),
+                  decoration: BoxDecoration(
+                    borderRadius: ProjectRadius.small.radius(context),
+                    color: ColorName.backgroundPrimary,
+                    boxShadow: [
+                      BoxShadow(
+                        color: ColorName.primary.withOpacity(0.2),
+                        spreadRadius: 6,
+                        blurRadius: 10,
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: ProjectRadius.small.radius(context),
+                    child: CustomNetworkImage(
+                      imageUrl: production?.image ?? '',
+                      size: Size(
+                        60.responsive(context),
+                        60.responsive(context) * 1.5,
+                      ),
+                      memCache: CustomMemCache(
+                        height: (100.responsive(context) * 1.5).toInt(),
+                        width: 100.responsive(context).toInt(),
+                      ),
                     ),
+                  ),
+                ),
+                ProjectSpacer.xLargeWidth(context),
+                Flexible(
+                  child: Text(
+                    production?.title ?? '',
+                    style: titleStyle,
                   ),
                 ),
               ],
             ),
           ),
+          ProjectSpacer.mediumHeight(context),
           Flexible(
             child: ListView.builder(
               shrinkWrap: true,

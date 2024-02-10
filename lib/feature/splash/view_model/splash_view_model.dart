@@ -19,8 +19,6 @@ class SplashViewModel extends SplashCubit with SplashViewModelMixin {
 
   final SplashOperation _splashOperation;
 
-  //TODO: Edit this method to initialize the splash screen. Add service ops.
-
   /// Initializes the splash screen.
   /// Delays the execution for 2 seconds.
   @override

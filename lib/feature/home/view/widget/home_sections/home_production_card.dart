@@ -41,17 +41,23 @@ class HomeProductionCard extends StatelessWidget {
         onLongPress: () async {
           final opsBottomsheet = TestProductionActionsBottomsheet(
             title: 'title',
+            production: production,
             actions: [
               ProductionAction(
                 onAction: () {},
-                title: 'title',
+                title: 'Daha Sonra İzle',
+                icon: Assets.icons.alarm.svg(package: 'gen'),
+              ),
+              ProductionAction(
+                onAction: () {},
+                title: 'Listene Ekle',
                 icon: Assets.icons.addCircle.svg(package: 'gen'),
               ),
             ],
-            titleStyle: TextStyles.header3(context),
+            titleStyle: TextStyles.header2(context),
             bodyStyle: TextStyles.body(context),
           );
-          await opsBottomsheet.show(context: context);
+          await opsBottomsheet.show(context: context, isFixed: false);
         },
         child: Container(
           margin: margin,

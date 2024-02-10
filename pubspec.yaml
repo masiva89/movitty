@@ -43,6 +43,7 @@ dependencies:
   #UI
   flutter_bounceable: ^1.1.0
   flutter_svg: ^2.0.9
+  carousel_slider: ^4.2.1
 
   widgets:
     path: module/widgets
