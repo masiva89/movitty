@@ -38,7 +38,7 @@ final class ApplicationInitialize {
       /// crashlytics log insert here
       /// custom service or custom logger insert here
       /// Todo: add custom logger
-      Logger().e(details.exceptionAsString());
+      //Logger().e(details.exceptionAsString());
     };
 
     _productEnvironmentWithContainer();

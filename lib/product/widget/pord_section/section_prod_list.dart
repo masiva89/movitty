@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
-import 'package:movitty/feature/home/view/widget/home_sections/home_production_card.dart';
 import 'package:movitty/product/utility/constants/index.dart';
 import 'package:movitty/product/widget/padding/project_padding.dart';
+import 'package:movitty/product/widget/pord_section/section_prod_card.dart';
 
 /// A widget that represents the production list for the home screen.
-class HomeSectionProductionList extends StatelessWidget {
+class SectionProdList extends StatelessWidget {
   /// A widget that represents the production list for the home screen.
-  const HomeSectionProductionList({required this.productions, super.key});
+  const SectionProdList({required this.productions, super.key});
 
   /// List of productions.
   final List<Production> productions;
 
   @override
   Widget build(BuildContext context) {
-    print('HomeSectionProductionList: ${productions.length}');
+    print('SectionProdList: ${productions.length}');
     return Flexible(
       child: SizedBox(
         width: double.infinity,
@@ -37,7 +37,7 @@ class HomeSectionProductionList extends StatelessWidget {
               left: leftMargin.ceilToDouble(),
               right: rightMargin.ceilToDouble(),
             );
-            return HomeProductionCard(
+            return SectionProdCard(
               production: productions[index],
               margin: margin,
               cardHeight: context.general.mediaSize.height * 0.18,

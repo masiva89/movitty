@@ -20,35 +20,14 @@ final class Multiple2TaskProcessor<T, R> {
     required Future<T> Function() firstTask,
     required Future<R> Function() secondTask,
   }) async {
-    final firstTaskResult = await firstTask();
-    final secondTaskResult = await secondTask();
+    final firstTaskResult = firstTask();
+    final secondTaskResult = secondTask();
 
     return Multiple2TaskProcessorResult(
-      firstTaskResult: firstTaskResult,
-      secondTaskResult: secondTaskResult,
+      firstTaskResult: await firstTaskResult,
+      secondTaskResult: await secondTaskResult,
     );
   }
-  /* Multiple2TaskProcessor({
-    required Future<T> Function() firstTask,
-    required Future<R> Function() secondTask,
-  })  : _firstTask = firstTask,
-        _secondTask = secondTask;
-
-  final Future<T> Function() _firstTask;
-  final Future<R> Function() _secondTask;
-
-  /// [firstTask] ve [secondTask] fonksiyonlarını aynı anda çalıştırır ve
-  /// taskların sonuçlarını T ve R generic type'larına sahip bir
-  /// [Multiple2TaskProcessorResult] nesnesi olarak döndürür.
-  Future<Multiple2TaskProcessorResult<T, R>> run() async {
-    final firstTaskResult = await _firstTask();
-    final secondTaskResult = await _secondTask();
-
-    return Multiple2TaskProcessorResult(
-      firstTaskResult: firstTaskResult,
-      secondTaskResult: secondTaskResult,
-    );
-  } */
 }
 
 final class Multiple2TaskProcessorResult<T, R> {

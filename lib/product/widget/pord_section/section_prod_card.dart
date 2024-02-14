@@ -12,10 +12,10 @@ import 'package:widgets/widgets.dart';
 /// This widget is used to display details about a production, such as a movie
 /// or TV show, in the home section of the app. It takes a [Production] object
 /// and an [EdgeInsetsGeometry] for the margin as required parameters.
-class HomeProductionCard extends StatelessWidget {
+class SectionProdCard extends StatelessWidget {
   /// A card widget that displays information about a production in the home
   /// section.
-  const HomeProductionCard({
+  const SectionProdCard({
     required this.production,
     required this.margin,
     required this.cardHeight,

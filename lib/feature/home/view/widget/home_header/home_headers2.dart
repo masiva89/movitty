@@ -2,12 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
-import 'package:movitty/feature/home/view/widget/general/section_title.dart';
 import 'package:movitty/feature/home/view/widget/home_header/home_header_card2.dart';
 import 'package:movitty/feature/home/view_model/index.dart';
 import 'package:movitty/product/utility/constants/decoration/index.dart';
 import 'package:movitty/product/utility/extension/list_extension.dart';
 import 'package:movitty/product/widget/padding/project_padding.dart';
+import 'package:movitty/product/widget/pord_section/section_title.dart';
 
 /// A widget that represents the headers for the home screen.
 class HomeHeaders2 extends StatelessWidget {

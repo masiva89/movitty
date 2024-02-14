@@ -1,1 +1,1 @@
-export 'search/index.dart';
+export 'discover/index.dart';

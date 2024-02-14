@@ -4,6 +4,7 @@ import 'package:movitty/feature/auth/auth/view/auth_nav_view.dart';
 import 'package:movitty/feature/auth/login/view/login_view.dart';
 import 'package:movitty/feature/auth/signup/view/signup_view.dart';
 import 'package:movitty/feature/dashboard/view/dashboard_view.dart';
+import 'package:movitty/feature/discover/view/discover_view.dart';
 import 'package:movitty/feature/home/view/home_detail_view.dart';
 import 'package:movitty/feature/home/view/home_nav_view.dart';
 import 'package:movitty/feature/home/view/home_second_view.dart';
@@ -68,6 +69,10 @@ final class AppRouter extends _$AppRouter {
                   ],
                 ),
               ],
+            ),
+            AdaptiveRoute(
+              page: ExploreRoute.page,
+              path: 'explore',
             ),
             AdaptiveRoute(
               page: HomeDetailRoute.page,

@@ -9,7 +9,10 @@ enum ProductServicePath {
   login('login'),
   version('version'),
   homeHeader('home/header'),
-  homeSections('home/sections');
+  homeSections('home/sections'),
+  discover('discover/discover'),
+  discoverSearch('discover/search'),
+  discoverFilter('discover/filter');
 
   const ProductServicePath(this.value);
   final String value;
