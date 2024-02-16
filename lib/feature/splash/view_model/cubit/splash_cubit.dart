@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:movitty/feature/splash/view_model/state/splash_state.dart';
 import 'package:movitty/product/state/index.dart';
 
@@ -17,5 +16,5 @@ abstract class SplashCubit extends BaseCubit<SplashState> {
   ///
   /// This method takes a [BuildContext] as a parameter and performs necessary
   /// initialization tasks.
-  Future<void> init(BuildContext context);
+  //Future<void> init(BuildContext context);
 }

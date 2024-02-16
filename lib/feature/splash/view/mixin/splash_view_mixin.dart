@@ -29,6 +29,6 @@ mixin SplashViewMixin on BaseState<SplashView> {
         ProductStateItems.productNetworkManager,
       ),
     );
-    _splashViewModel.init(context);
+    _splashViewModel.initialEvent(context);
   }
 }

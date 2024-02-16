@@ -22,11 +22,11 @@ class SplashViewModel extends SplashCubit with SplashViewModelMixin {
   /// Initializes the splash screen.
   /// Delays the execution for 2 seconds.
   @override
-  Future<void> init(BuildContext context) async {
+  void initialEvent(BuildContext? context) {
     log('[SplashViewModel] ------------------ START');
     log('[SplashViewModel] init');
 
-    await checkVersion(context);
+    checkVersion(context!);
 
     log('[SplashViewModel] ------------------ END');
   }

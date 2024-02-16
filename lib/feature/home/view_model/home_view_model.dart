@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/home/view_model/cubit/home_cubit.dart';
@@ -13,9 +14,14 @@ class HomeViewModel extends HomeCubit
   /// [AuthenticationOperation] service
   HomeViewModel({required HomeOperation homeOperation})
       : _homeOperation = homeOperation,
-        super(const HomeState(isLoading: false));
+        super(HomeState());
 
   final HomeOperation _homeOperation;
+
+  @override
+  void initialEvent(BuildContext? context) {
+    fetchHomeData();
+  }
 
   @override
   Future<void> fetchHomeData() async {

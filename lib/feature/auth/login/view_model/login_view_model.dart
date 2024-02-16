@@ -34,6 +34,9 @@ final class LoginViewModel extends LoginCubit {
     emit(state.copyWith(isLoading: !state.isLoading));
   }
 
+  @override
+  void initialEvent(BuildContext? context) {}
+
   /// Login event to use in [LoginView]
   @override
   Future<bool> onPressedLogin() async {

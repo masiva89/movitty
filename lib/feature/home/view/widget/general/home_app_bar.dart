@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
 import 'package:movitty/feature/home/view_model/index.dart';
+import 'package:movitty/product/state/base/base_equatable.dart';
 import 'package:movitty/product/utility/constants/index.dart';
 import 'package:widgets/widgets.dart';
 
@@ -39,7 +40,9 @@ class _Loading extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeViewModel, HomeState>(
       builder: (context, state) {
-        if (!state.isLoading) return const SizedBox.shrink();
+        if (state.status == StateType.LOADING.opposite) {
+          return const SizedBox.shrink();
+        }
         return const CircularProgressIndicator.adaptive();
       },
     );

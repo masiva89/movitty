@@ -71,8 +71,11 @@ final class AppRouter extends _$AppRouter {
               ],
             ),
             AdaptiveRoute(
-              page: ExploreRoute.page,
-              path: 'explore',
+              page: DiscoverRoute.page,
+              path: 'discover',
+              guards: [
+                AuthRestrictedPageGuard(),
+              ],
             ),
             AdaptiveRoute(
               page: HomeDetailRoute.page,

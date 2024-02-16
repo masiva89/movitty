@@ -14,3 +14,12 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
   /// [productViewModel] is a view model for the product module.
   ProductViewModel get productViewModel => ProductStateItems.productViewModel;
 }
+
+abstract class BaseStateStateless<T extends StatelessWidget> {
+  /// [productNetworkManager] is a network manager for the product module.
+  ProductNetworkManager get productNetworkManager =>
+      ProductStateItems.productNetworkManager;
+
+  /// [productViewModel] is a view model for the product module.
+  ProductViewModel get productViewModel => ProductStateItems.productViewModel;
+}

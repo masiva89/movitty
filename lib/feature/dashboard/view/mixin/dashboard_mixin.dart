@@ -21,7 +21,7 @@ mixin DashboardMixin on State<DashboardView> {
     BuildContext context,
     TabsRouter tabsRouter,
   ) {
-    log('appBarBuilder');
+    /* log('appBarBuilder');
     log('tabsRouter.activeIndex: ${tabsRouter.activeIndex}');
     log('tabsRouter.current.name: ${tabsRouter.current.name}');
     log('tabsRouter.current.path: ${tabsRouter.current.path}');
@@ -32,7 +32,7 @@ mixin DashboardMixin on State<DashboardView> {
     log('tabsRouter.routeData.name: ${tabsRouter.routeData.name}');
     log('tabsRouter.routeData.route: ${tabsRouter.routeData.route}');
     log('tabsRouter.routeData.parent: ${tabsRouter.routeData.parent?.name}');
-    log('-------');
+    log('-------'); */
     _navigatorKey = _getNavigatorKey(tabsRouter);
     return AppBarSwitcher(
       appBar: _isOnMainRoute(tabsRouter)

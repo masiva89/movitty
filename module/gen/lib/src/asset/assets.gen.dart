@@ -269,6 +269,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/error_view_image.svg
+  SvgGenImage get errorViewImage =>
+      const SvgGenImage('assets/images/error_view_image.svg');
+
   /// File path: assets/images/main_logo.png
   AssetGenImage get mainLogoPng =>
       const AssetGenImage('assets/images/main_logo.png');
@@ -291,6 +295,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        errorViewImage,
         mainLogoPng,
         mainLogoSvg,
         mainLogoFullPng,
