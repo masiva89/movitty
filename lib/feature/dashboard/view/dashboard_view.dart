@@ -48,7 +48,7 @@ class _DashboardViewState extends State<DashboardView> with DashboardMixin {
       ),
       routes: [
         const HomeRoute(),
-        HomeDetailRoute(id: 'id'),
+        DiscoverRoute(),
       ],
       scaffoldKey: globalScaffoldKey,
       animationDuration: const Duration(milliseconds: 500),

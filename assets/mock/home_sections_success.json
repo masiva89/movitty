@@ -1,0 +1,60 @@
+{
+    "success": 1,
+    "message": "Başarılı!",
+    "data": {
+        "sections": [
+            {
+                "title": "Sana göre filmler",
+                "production_type_id": 1,
+                "productions": [
+                    {
+                        "id": 154,
+                        "title": "Başlangıç",
+                        "image": "https://img.fruugo.com/product/2/28/14590282_max.jpg"
+                    },
+                    {
+                        "id": 123,
+                        "title": "Yeşil Yol",
+                        "image": "https://static.boxofficeturkiye.com/movie//poster/full/85/2012885-569227662.jpg"
+                    },
+                    {
+                        "id": 543,
+                        "title": "Shawshank Redemption",
+                        "image": "https://img.fruugo.com/product/2/28/14590282_max.jpg"
+                    },
+                    {
+                        "id": 654,
+                        "title": "Dövüş Kulübü",
+                        "image": "https://static.boxofficeturkiye.com/movie//poster/full/85/2012885-569227662.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "Sana göre diziler",
+                "production_type_id": 2,
+                "productions": [
+                    {
+                        "id": 154,
+                        "title": "Başlangıç",
+                        "image": "https://img.fruugo.com/product/2/28/14590282_max.jpg"
+                    },
+                    {
+                        "id": 123,
+                        "title": "Yeşil Yol",
+                        "image": "https://static.boxofficeturkiye.com/movie//poster/full/85/2012885-569227662.jpg"
+                    },
+                    {
+                        "id": 543,
+                        "title": "Shawshank Redemption",
+                        "image": "https://img.fruugo.com/product/2/28/14590282_max.jpg"
+                    },
+                    {
+                        "id": 654,
+                        "title": "Dövüş Kulübü",
+                        "image": "https://static.boxofficeturkiye.com/movie//poster/full/85/2012885-569227662.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}

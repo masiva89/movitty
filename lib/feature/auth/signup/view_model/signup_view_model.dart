@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:core/core.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/auth/signup/view_model/cubit/signup_cubit.dart';
 import 'package:movitty/feature/auth/signup/view_model/state/signup_state.dart';
@@ -27,6 +28,8 @@ final class SignupViewModel extends SignupCubit {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController emailController = TextEditingController(); */
+  @override
+  void initialEvent(BuildContext? context) {}
 
   /// Change loading state
   void changeLoading() {

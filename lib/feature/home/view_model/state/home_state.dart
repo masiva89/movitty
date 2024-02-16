@@ -1,19 +1,51 @@
-import 'package:equatable/equatable.dart';
 import 'package:gen/gen.dart';
+import 'package:movitty/product/state/base/base_equatable.dart';
 
-final class HomeState extends Equatable {
-  const HomeState({required this.isLoading, this.users});
-
-  final bool isLoading;
-  final List<User>? users;
+/// Represents the state of the home screen.
+///
+/// This class contains information about whether the screen is currently loading,
+/// the header of the screen, and the sections displayed on the screen.
+final class HomeState extends StateEquatable {
+  /// Creates a new [HomeState] instance.
+  ///
+  /// The [header] and [sections] parameters are optional.
+  HomeState({
+    this.header,
+    this.sections,
+    super.status = StateType.LOADING,
+  });
 
   @override
-  List<Object?> get props => [isLoading, users];
+  StateType get status => StateType.LOADING;
+  @override
+  set status(StateType status) {
+    this.status = status;
+  }
 
-  HomeState copyWith({bool? isLoading, List<User>? users}) {
+  /// The header of the screen.
+  final Header? header;
+
+  /// The sections displayed on the screen.
+  final HomeSections? sections;
+
+  @override
+  List<Object?> get props => [status, header, sections];
+
+  /// Creates a copy of this [HomeState] with the specified parameters
+  /// overridden.
+  HomeState copyWith({
+    StateType? status,
+    Header? header,
+    HomeSections? sections,
+  }) {
+    if (status == null) {
+      if (sections != null) {
+        status = StateType.SUCCESS;
+      }
+    }
     return HomeState(
-      isLoading: isLoading ?? this.isLoading,
-      users: users ?? this.users,
+      header: header ?? this.header,
+      sections: sections ?? this.sections,
     );
   }
 }

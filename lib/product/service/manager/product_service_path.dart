@@ -6,7 +6,13 @@ enum ProductServicePath {
   posts('posts'),
   usersV2('v2/users'),
   signUp('signup'),
-  login('login');
+  login('login'),
+  version('version'),
+  homeHeader('home/header'),
+  homeSections('home/sections'),
+  discover('discover/discover'),
+  discoverSearch('discover/search'),
+  discoverFilter('discover/filter');
 
   const ProductServicePath(this.value);
   final String value;

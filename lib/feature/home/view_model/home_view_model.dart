@@ -1,45 +1,49 @@
-import 'package:core/core.dart';
+import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
+import 'package:movitty/feature/home/view_model/cubit/home_cubit.dart';
 import 'package:movitty/feature/home/view_model/index.dart';
-import 'package:movitty/product/cache/index.dart';
+import 'package:movitty/product/cache/mixin/auth_cache_mixin.dart';
 import 'package:movitty/product/service/index.dart';
-import 'package:movitty/product/state/base/base_cubit.dart';
+import 'package:movitty/product/service/interface/home_operation.dart';
+import 'package:movitty/product/utility/process/multiple_task_processor.dart';
 
 /// Manage your home view business logic
-final class HomeViewModel extends BaseCubit<HomeState> {
+class HomeViewModel extends HomeCubit
+    with AuthCacheCubitMixin, HomeViewModelMixin {
   /// [AuthenticationOperation] service
-  HomeViewModel({
-    required AuthenticationOperation operationService,
-    required HiveCacheOperation<UserCacheModel> userCacheOperation,
-  })  : _authenticationOperationService = operationService,
-        _userCacheOperation = userCacheOperation,
-        super(const HomeState(isLoading: false));
+  HomeViewModel({required HomeOperation homeOperation})
+      : _homeOperation = homeOperation,
+        super(HomeState());
 
-  final AuthenticationOperation _authenticationOperationService;
-  final HiveCacheOperation<UserCacheModel> _userCacheOperation;
+  final HomeOperation _homeOperation;
 
-  /// Change loading state
-  void changeLoading() {
-    emit(state.copyWith(isLoading: !state.isLoading));
+  @override
+  void initialEvent(BuildContext? context) {
+    fetchHomeData();
   }
 
-  /// Get users
-  Future<void> fetchUsers() async {
-    CustomLogger.showError<User>(usersFromCache);
-    /* final response = await _authenticationOperationService.users();
-    _saveItems(response);
-    emit(state.copyWith(users: response)); */
-  }
-
-  /// Save users to cache
-  void _saveItems(List<User> user) {
-    for (final element in user) {
-      _userCacheOperation.add(UserCacheModel(user: element));
+  @override
+  Future<void> fetchHomeData() async {
+    try {
+      //await Future.delayed(const Duration(seconds: 2));
+      final multiple2TaskResult =
+          await Multiple2TaskProcessor.run<Header, HomeSections>(
+        firstTask: _homeHeader,
+        secondTask: _homeSections,
+      );
+      emit(
+        state.copyWith(
+          header: multiple2TaskResult.firstTaskResult,
+          sections: multiple2TaskResult.secondTaskResult,
+        ),
+      );
+    } on Exception catch (e) {
+      CustomLogger.showError<Exception>(e);
     }
   }
 
-  /// Get users from cache
-  List<User> get usersFromCache =>
-      _userCacheOperation.getAll().map((e) => e.user).toList();
+  Future<Header> _homeHeader() async => _homeOperation.homeHeader();
+
+  Future<HomeSections> _homeSections() async => _homeOperation.homeSections();
 }

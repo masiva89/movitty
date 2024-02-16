@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:movitty/feature/dashboard/view/dashboard_view.dart';
-import 'package:movitty/feature/home/view/widget/home_app_bar.dart';
+import 'package:movitty/feature/home/view/widget/general/home_app_bar.dart';
 import 'package:movitty/product/navigation/inner_paths.dart';
 import 'package:movitty/product/widget/appbar/appbar_switcher.dart';
 import 'package:movitty/product/widget/button/index.dart';
@@ -21,7 +21,7 @@ mixin DashboardMixin on State<DashboardView> {
     BuildContext context,
     TabsRouter tabsRouter,
   ) {
-    log('appBarBuilder');
+    /* log('appBarBuilder');
     log('tabsRouter.activeIndex: ${tabsRouter.activeIndex}');
     log('tabsRouter.current.name: ${tabsRouter.current.name}');
     log('tabsRouter.current.path: ${tabsRouter.current.path}');
@@ -32,7 +32,7 @@ mixin DashboardMixin on State<DashboardView> {
     log('tabsRouter.routeData.name: ${tabsRouter.routeData.name}');
     log('tabsRouter.routeData.route: ${tabsRouter.routeData.route}');
     log('tabsRouter.routeData.parent: ${tabsRouter.routeData.parent?.name}');
-    log('-------');
+    log('-------'); */
     _navigatorKey = _getNavigatorKey(tabsRouter);
     return AppBarSwitcher(
       appBar: _isOnMainRoute(tabsRouter)

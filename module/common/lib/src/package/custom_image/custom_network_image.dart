@@ -43,18 +43,20 @@ final class CustomNetworkImage extends StatelessWidget {
       imageUrl: url,
       memCacheHeight: memCache.height,
       memCacheWidth: memCache.width,
+      filterQuality: FilterQuality.high,
+      useOldImageOnUrlChange: true,
       fit: boxFit,
       width: size?.width,
       height: size?.height,
       errorListener: (value) {
         if (kDebugMode) debugPrint('Error: $value');
       },
-      progressIndicatorBuilder: (context, url, progress) {
+      /* progressIndicatorBuilder: (context, url, progress) {
         return loadingWidget ??
             const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator.adaptive(),
             );
-      },
+      }, */
       errorWidget: (context, url, error) {
         return emptyWidget ?? const SizedBox();
       },
